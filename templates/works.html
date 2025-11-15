@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | SuyashGraphics</title>
+    <meta name="description" content="Premium graphic design & printing portfolio — visiting cards, logos, invitations, posters, billbooks & more.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --teal: #00c9b1;
+            --coral: #ff6b6b;
+            --gold: #ffd166;
+            --indigo: #5e60ce;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafbfc;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Animated Gradient Header */
+        header {
+            background: linear-gradient(90deg, var(--indigo), #7b2cbf, var(--teal));
+            background-size: 300% 300%;
+            animation: gradientBG 8s ease infinite;
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--gold), var(--coral));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            padding: 0.4rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--indigo), var(--teal));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--coral), var(--indigo));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 0 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            margin-bottom: 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 280px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(94,96,206,0.2), transparent);
+            margin: 3rem auto;
+            width: 80%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #aaa;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--gold), var(--teal));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Gradient Animation -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">Suyash<span>Graphics</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Creative Work</h1>
+            <p>Pure visual storytelling — no words, just design & print excellence.</p>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- Visiting Cards -->
+        <section class="gallery-section">
+            <div class="section-title">
+                <h2>Visiting Cards</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Visiting+Card+1" alt="Visiting Card" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Visiting+Card+2" alt="Visiting Card" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/5E60CE/FFFFFF?text=Visiting+Card+3" alt="Visiting Card" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/FFD166/1A1A2E?text=Visiting+Card+4" alt="Visiting Card" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Logo Design -->
+        <section class="gallery-section">
+            <div class="section-title">
+                <h2>Logo Design</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/1A1A2E/FFD166?text=Logo+1" alt="Logo Design" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Logo+2" alt="Logo Design" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/7B2CBF/FFFFFF?text=Logo+3" alt="Logo Design" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Logo+4" alt="Logo Design" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Invitations -->
+        <section class="gallery-section">
+            <div class="section-title">
+                <h2>Invitations</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Wedding+Invitation" alt="Invitation" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/FFD166/1A1A2E?text=Birthday+Invite" alt="Invitation" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/5E60CE/FFFFFF?text=Corporate+Invite" alt="Invitation" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Anniversary+Card" alt="Invitation" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Posters & Pamphlets -->
+        <section class="gallery-section">
+            <div class="section-title">
+                <h2>Posters & Pamphlets</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x800/5E60CE/FFFFFF?text=Event+Poster" alt="Poster" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x800/FF6B6B/FFFFFF?text=Product+Launch+Poster" alt="Poster" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x800/00C9B1/FFFFFF?text=Health+Pamphlet" alt="Pamphlet" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x800/FFD166/1A1A2E?text=Education+Flyer" alt="Pamphlet" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Billbooks -->
+        <section class="gallery-section">
+            <div class="section-title">
+                <h2>Billbooks</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/1A1A2E/FFD166?text=Billbook+Cover" alt="Billbook" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/5E60CE/FFFFFF?text=Invoice+Page" alt="Billbook" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Receipt+Book" alt="Billbook" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Order+Book" alt="Billbook" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Packaging & More -->
+        <section class="gallery-section">
+            <div class="section-title">
+                <h2>Packaging & More</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x600/FFD166/1A1A2E?text=Product+Box" alt="Packaging" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x600/7B2CBF/FFFFFF?text=Sticker+Sheet" alt="Stickers" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x600/FF6B6B/FFFFFF?text=Envelope+Set" alt="Envelopes" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x600/00C9B1/FFFFFF?text=Badge+Design" alt="Badges" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Suyash<span style="color:var(--gold)">Graphics</span></div>
+            <p>Where creativity meets print perfection.</p>
+            <div class="copyright">
+                &copy; 2025 SuyashGraphics. All images are for portfolio display only.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
