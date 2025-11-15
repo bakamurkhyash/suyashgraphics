@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | SuyashGraphics</title>
-    <meta name="description" content="Premium graphic design & printing portfolio — visiting cards, logos, invitations, posters, billbooks & more.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Our Works | SuyashGraphics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,410 +17,494 @@
             --coral: #ff6b6b;
             --gold: #ffd166;
             --indigo: #5e60ce;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
+            --purple: #7b2cbf;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #fafbfc;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Animated Gradient Header */
-        header {
-            background: linear-gradient(90deg, var(--indigo), #7b2cbf, var(--teal));
-            background-size: 300% 300%;
-            animation: gradientBG 8s ease infinite;
+            background: #0f0f1b;
             color: white;
-            padding: 1.2rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        @keyframes gradientBG {
+        /* Floating Particles */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(94, 96, 206, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 201, 177, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 50% 20%, rgba(255, 107, 107, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Animated Header */
+        .header {
+            text-align: center;
+            padding: 4rem 1.5rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(110deg, var(--indigo), var(--teal), var(--coral), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            letter-spacing: -1.2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative;
+            display: inline-block;
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            border-radius: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+            50% { opacity: 0.6; transform: translateX(-50%) scaleX(1.2); }
         }
 
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--gold), var(--coral));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
+        /* Masonry Grid */
+        .gallery {
+            column-count: 4;
+            column-gap: 1.4rem;
+            padding: 0 1.5rem 3rem;
             position: relative;
-            padding: 0.4rem 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--gold);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 5rem 0 3rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--indigo), var(--teal));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Section Title */
-        .section-title {
-            text-align: center;
-            margin: 3rem 0 2rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            display: inline-block;
-            background: linear-gradient(135deg, var(--coral), var(--indigo));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            padding: 0 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--gold);
-            border-radius: 2px;
-        }
-
-        /* Gallery Grid */
-        .gallery-section {
-            margin-bottom: 4rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            z-index: 5;
         }
 
         .gallery-item {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 280px;
+            break-inside: avoid;
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        /* Staggered animation */
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.9s; }
+        .gallery-item:nth-child(10) { animation-delay: 1.0s; }
+        .gallery-item:nth-child(11) { animation-delay: 1.1s; }
+        .gallery-item:nth-child(12) { animation-delay: 1.2s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-img-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--teal), var(--coral), var(--gold), var(--indigo));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-img-wrapper::before {
+            opacity: 1;
         }
 
         .gallery-img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.7s ease;
         }
 
         .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
+            transform: scale(1.06) rotate(0.8deg);
         }
 
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(94,96,206,0.2), transparent);
-            margin: 3rem auto;
-            width: 80%;
+        /* Tilt Effect via CSS (no JS) */
+        .gallery-img-wrapper {
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: #aaa;
-            padding: 3rem 0 1.5rem;
-            text-align: center;
+        .gallery-img {
+            transform: translateZ(0);
         }
 
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--gold), var(--teal));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .copyright {
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-            color: #777;
+        .gallery-item:hover .gallery-img-wrapper {
+            transform: rotateX(3deg) rotateY(-3deg) scale(1.02);
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .gallery-item {
-                height: 200px;
-            }
+        @media (max-width: 1200px) {
+            .gallery { column-count: 3; }
+            .header h1 { font-size: 3.8rem; }
         }
 
-        @media (max-width: 480px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 900px) {
+            .gallery { column-count: 2; }
+            .header h1 { font-size: 3.2rem; }
         }
+
+        @media (max-width: 600px) {
+            .gallery { column-count: 1; column-gap: 0; }
+            .header h1 { font-size: 2.6rem; }
+            .header h1::after { width: 80px; }
+            .gallery-item { margin-bottom: 1rem; }
+        }
+
+        /* Optional: Add subtle float animation on idle */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Uncomment below to enable gentle float on images (optional) */
+        /*
+        .gallery-item {
+            animation: float 6s ease-in-out infinite;
+        }
+        .gallery-item:nth-child(2n) { animation-delay: -1s; }
+        .gallery-item:nth-child(3n) { animation-delay: -2s; }
+        */
+
+        /* ===== FOOTER STYLES ===== */
+footer {
+    background: var(--dark);
+    color: #aaa;
+    padding: 5rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--coral), var(--gold));
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.footer-column h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: 0.6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+}
+
+.footer-column p {
+    line-height: 1.7;
+    color: #bbb;
+}
+
+.footer-column p i {
+    color: var(--gold);
+    margin-right: 8px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.9rem;
+}
+
+.footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+
+.footer-column ul li a:hover {
+    color: var(--gold);
+    transform: translateX(4px);
+}
+
+.footer-column ul li a i {
+    font-size: 0.85rem;
+    color: var(--teal);
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover i {
+    color: var(--gold);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: linear-gradient(135deg, var(--teal), var(--coral));
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.95rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.copyright span {
+    color: var(--gold);
+}
+
+.copyright i {
+    color: var(--coral);
+    margin: 0 4px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .footer-content {
+        gap: 2rem;
+    }
+
+    .footer-column h3 {
+        font-size: 1.3rem;
+    }
+
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+    }
+}
     </style>
 </head>
 <body>
 
-    <!-- Header with Gradient Animation -->
-    <header>
-        <div class="container navbar">
-            <div class="logo">Suyash<span>Graphics</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <h1>Our Creative Work</h1>
-            <p>Pure visual storytelling — no words, just design & print excellence.</p>
-        </div>
-    </section>
-
-    <div class="container">
-
-        <!-- Visiting Cards -->
-        <section class="gallery-section">
-            <div class="section-title">
-                <h2>Visiting Cards</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Visiting+Card+1" alt="Visiting Card" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Visiting+Card+2" alt="Visiting Card" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/5E60CE/FFFFFF?text=Visiting+Card+3" alt="Visiting Card" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/FFD166/1A1A2E?text=Visiting+Card+4" alt="Visiting Card" class="gallery-img">
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Logo Design -->
-        <section class="gallery-section">
-            <div class="section-title">
-                <h2>Logo Design</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/1A1A2E/FFD166?text=Logo+1" alt="Logo Design" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Logo+2" alt="Logo Design" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/7B2CBF/FFFFFF?text=Logo+3" alt="Logo Design" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Logo+4" alt="Logo Design" class="gallery-img">
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Invitations -->
-        <section class="gallery-section">
-            <div class="section-title">
-                <h2>Invitations</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Wedding+Invitation" alt="Invitation" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/FFD166/1A1A2E?text=Birthday+Invite" alt="Invitation" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/5E60CE/FFFFFF?text=Corporate+Invite" alt="Invitation" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Anniversary+Card" alt="Invitation" class="gallery-img">
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Posters & Pamphlets -->
-        <section class="gallery-section">
-            <div class="section-title">
-                <h2>Posters & Pamphlets</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x800/5E60CE/FFFFFF?text=Event+Poster" alt="Poster" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x800/FF6B6B/FFFFFF?text=Product+Launch+Poster" alt="Poster" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x800/00C9B1/FFFFFF?text=Health+Pamphlet" alt="Pamphlet" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x800/FFD166/1A1A2E?text=Education+Flyer" alt="Pamphlet" class="gallery-img">
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Billbooks -->
-        <section class="gallery-section">
-            <div class="section-title">
-                <h2>Billbooks</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/1A1A2E/FFD166?text=Billbook+Cover" alt="Billbook" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/5E60CE/FFFFFF?text=Invoice+Page" alt="Billbook" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/00C9B1/FFFFFF?text=Receipt+Book" alt="Billbook" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x500/FF6B6B/FFFFFF?text=Order+Book" alt="Billbook" class="gallery-img">
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Packaging & More -->
-        <section class="gallery-section">
-            <div class="section-title">
-                <h2>Packaging & More</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x600/FFD166/1A1A2E?text=Product+Box" alt="Packaging" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x600/7B2CBF/FFFFFF?text=Sticker+Sheet" alt="Stickers" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x600/FF6B6B/FFFFFF?text=Envelope+Set" alt="Envelopes" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/600x600/00C9B1/FFFFFF?text=Badge+Design" alt="Badges" class="gallery-img">
-                </div>
-            </div>
-        </section>
-
+    <!-- Animated Header -->
+    <div class="header">
+        <h1>Our Works</h1>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">Suyash<span style="color:var(--gold)">Graphics</span></div>
-            <p>Where creativity meets print perfection.</p>
-            <div class="copyright">
-                &copy; 2025 SuyashGraphics. All images are for portfolio display only.
+    <!-- Masonry Image Gallery -->
+    <div class="gallery" id="gallery">
+        <!-- Each item auto-fits in masonry layout -->
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/XYhzcc6k/118101.jpg" alt="Project" class="gallery-img">
             </div>
         </div>
-    </footer>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/ZYFXtd6V/169233.jpg" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/bwFKVfkx/217.jpg" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/Xq8PwRnZ/241380.png" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/7ZcWMMrM/264.jpg" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/Mp4Fbb82/343.jpg" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/7LGjptNP/84.jpg" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/9QHSfDkQ/282.jpg" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/85YXgcWC/357.png" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/28ZMmQ01/372.jpg" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/tTcvGJPt/49453.png" alt="Project" class="gallery-img">
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="gallery-img-wrapper">
+                <img src="https://i.postimg.cc/Y0JPY0C7/89.png" alt="Project" class="gallery-img">
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Column 1: Brand & Info -->
+            <div class="footer-column">
+                <h3>Suyash<span style="color: var(--gold)">Graphics</span></h3>
+                <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
+                <p><i class="far fa-clock"></i> Mon–Sat: 9 AM – 8 PM</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+918888574585">+91 88885 74585</a></p>
+                <div class="social-icons">
+                    <a href="https://facebook.com/suyashgraphics" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/suyashgraphics" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/918888574585?text=Hello%20SuyashGraphics!" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://linkedin.com/company/suyashgraphics" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Logo Design</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Visiting Cards</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wedding Invitations</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Billbooks & Stationery</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Posters & Banners</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Premium Printing</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Quick Contact -->
+            <div class="footer-column">
+                <h3>Get in Touch</h3>
+                <ul>
+                    <li>
+                        <a href="mailto:suyashgraphics@gmail.com">
+                            <i class="fas fa-envelope"></i> suyashgraphics@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+918888574585">
+                            <i class="fas fa-phone-alt"></i> +91 88885 74585
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.co.in/maps/place/Kolhapur" target="_blank">
+                            <i class="fas fa-map-pin"></i> Visit Our Studio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#home" class="quick-quote">
+                            <i class="fas fa-paper-plane"></i> Request a Free Quote
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 <span>SuyashGraphics</span>. Crafted with <i class="fas fa-heart"></i> for your success.
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

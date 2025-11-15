@@ -548,6 +548,178 @@
                 transform: translateY(0);
             }
         }
+
+        /* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+    position: relative;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--indigo), #7b2cbf);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-header h3 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    background: var(--coral);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1.8rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.pricing-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.pricing-card h4 {
+    font-weight: 700;
+    color: var(--indigo);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.pricing-card .price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0.4rem 0;
+}
+
+.pricing-card .price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #777;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.pricing-card ul li {
+    padding: 0.3rem 0;
+    position: relative;
+}
+
+.pricing-card ul li::before {
+    content: "✓";
+    color: var(--teal);
+    font-weight: bold;
+    margin-right: 0.4rem;
+}
+
+.cta-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: linear-gradient(45deg, var(--coral), #ff8e8e);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cta-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(255,107,107,0.4);
+}
+
+/* Responsive modal */
+@media (max-width: 576px) {
+    .modal {
+        width: 95%;
+        margin: 1rem;
+    }
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
@@ -703,6 +875,7 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
@@ -742,26 +915,152 @@
         </div>
     </footer>
 
-    <script>
-        // Simple scroll animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const animateElements = document.querySelectorAll('.animate');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('appear');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
+<!-- Service Modal -->
+<div class="modal-overlay" id="serviceModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 id="modalServiceTitle">Service Details</h3>
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p id="modalServiceDesc">Service description goes here.</p>
+            <div class="pricing-grid" id="pricingGrid">
+                <!-- Pricing cards injected via JS -->
+            </div>
+            <button class="cta-btn" onclick="openContact()">📩 Get Custom Quote</button>
+        </div>
+    </div>
+</div>
 
-            animateElements.forEach(el => {
-                observer.observe(el);
+    <script>
+    // Service data with pricing
+    const servicesData = {
+        "Visiting Cards": {
+            description: "Premium quality visiting cards — the perfect first impression for your brand.",
+            pricing: [
+                { name: "Basic", price: "₹199", per: "/100 pcs", features: ["Matte Finish", "Standard Size", "Digital Print"] },
+                { name: "Premium", price: "₹499", per: "/100 pcs", features: ["Glossy/Spot UV", "Rounded Corners", "Thicker Stock (300 GSM)"] },
+                { name: "Deluxe", price: "₹899", per: "/100 pcs", features: ["Foil Stamping", "Embossing/Debossing", "Custom Shape", "Eco-Friendly Paper"] }
+            ]
+        },
+        "Logo Design": {
+            description: "Unique, scalable, and timeless logo that captures your brand’s essence.",
+            pricing: [
+                { name: "Starter", price: "₹1,499", per: "", features: ["2 Concepts", "2 Revisions", "PNG + JPG"] },
+                { name: "Professional", price: "₹3,499", per: "", features: ["4 Concepts", "Unlimited Revisions", "AI/EPS/PNG/JPG/SVG", "Brand Guidelines (Basic)"] },
+                { name: "Premium", price: "₹6,999", per: "", features: ["Full Brand Identity", "Logo + Stationery + Social Kit", "Animated Logo (GIF)", "Trademark Advice"] }
+            ]
+        },
+        "Posters & Pamphlets": {
+            description: "Eye-catching posters and pamphlets designed to grab attention and drive action.",
+            pricing: [
+                { name: "Single", price: "₹299", per: "/design", features: ["A3 or A4 Size", "1 Side Print", "Standard Paper"] },
+                { name: "Bundle", price: "₹999", per: "/5 designs", features: ["Mix of Sizes", "Double-Sided", "Lamination Option"] },
+                { name: "Campaign", price: "₹2,499", per: "/10+ pcs", features: ["Thematic Series", "QR Integration", "Bulk Offset Print"] }
+            ]
+        },
+        "Invitations": {
+            description: "Elegant, memorable invitations tailored for weddings, birthdays, and corporate events.",
+            pricing: [
+                { name: "Digital", price: "₹499", per: "/set", features: ["High-Res PDF", "Custom Animation", "WhatsApp-Friendly"] },
+                { name: "Printed", price: "₹1,299", per: "/50 pcs", features: ["Premium Paper", "Envelope Included", "Foil/UV Options"] },
+                { name: "Luxury", price: "₹3,499", per: "/50 pcs", features: ["Boxed Set", "Laser Cut", "Scented/Textured Paper", "RSVP Cards"] }
+            ]
+        },
+        "Billbooks & Stationery": {
+            description: "Professional billbooks, letterheads, envelopes — consistent branding for your business.",
+            pricing: [
+                { name: "Starter Kit", price: "₹799", per: "/50 sets", features: ["Billbook + Letterhead", "Standard Print"] },
+                { name: "Business Pack", price: "₹1,999", per: "/100 sets", features: ["Billbook + Letterhead + Envelopes", "Spot UV on Logo"] },
+                { name: "Executive Suite", price: "₹4,499", per: "/200 sets", features: ["Premium Paper", "Foil Branding", "Custom Binding"] }
+            ]
+        },
+        "Premium Printing": {
+            description: "High-end printing solutions — from brochures to banners, with precision finishing.",
+            pricing: [
+                { name: "Digital", price: "₹2.5/pc", per: "/A4", features: ["Fast Turnaround", "Full Color", "Matte/Gloss"] },
+                { name: "Offset", price: "₹1.2/pc", per: "/A4 (min 500)", features: ["Sharper Quality", "Pantone Matching", "Bulk Savings"] },
+                { name: "Large Format", price: "From ₹199/sq.ft", per: "", features: ["Flex/Banner/Vinyl", "Mounting Options", "Weather-Resistant"] }
+            ]
+        }
+    };
+
+    // DOM Elements
+    const modal = document.getElementById('serviceModal');
+    const modalTitle = document.getElementById('modalServiceTitle');
+    const modalDesc = document.getElementById('modalServiceDesc');
+    const pricingGrid = document.getElementById('pricingGrid');
+    const closeBtn = document.getElementById('modalCloseBtn');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    // Open modal
+    function openServiceModal(serviceName) {
+        const service = servicesData[serviceName];
+        if (!service) return;
+
+        modalTitle.textContent = serviceName;
+        modalDesc.textContent = service.description;
+
+        // Generate pricing cards
+        pricingGrid.innerHTML = service.pricing.map(plan => `
+            <div class="pricing-card">
+                <h4>${plan.name}</h4>
+                <div class="price">${plan.price}<span>${plan.per}</span></div>
+                <ul>
+                    ${plan.features.map(f => `<li>${f}</li>`).join('')}
+                </ul>
+            </div>
+        `).join('');
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal
+    function closeServiceModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Attach click events to service cards
+    serviceCards.forEach(card => {
+        const title = card.querySelector('h3').textContent;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => openServiceModal(title));
+    });
+
+    // Event listeners
+    closeBtn.addEventListener('click', closeServiceModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeServiceModal();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeServiceModal();
+        }
+    });
+
+    // Smooth scroll & animation on load
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateElements = document.querySelectorAll('.animate');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
             });
-        });
-    </script>
+        }, { threshold: 0.1 });
+        animateElements.forEach(el => observer.observe(el));
+    });
+
+    // Helper: scroll to contact
+    function openContact() {
+        closeServiceModal();
+        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
