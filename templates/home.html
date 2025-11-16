@@ -131,6 +131,39 @@
             width: 100%;
         }
 
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1500;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hamburger.active span:first-child {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:last-child {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
         /* Hero */
         .hero {
             height: 90vh;
@@ -514,7 +547,59 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            /* Hamburger visible */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Desktop nav hidden visually by moving off-screen */
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 300px;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--indigo), #7b2cbf, var(--teal));
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 80px;
+                gap: 1.5rem;
+                list-style: none;
+                margin: 0;
+                z-index: 1100;
+                transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .nav-links a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.3rem;
+                padding: 0.8rem 1.5rem;
+                width: 100%;
+                text-align: center;
+                border-radius: 12px;
+                transition: background 0.3s;
+            }
+
+            .nav-links a:hover,
+            .nav-links a:focus {
+                background: rgba(255,255,255,0.15);
+            }
+
+            .nav-links a::after {
                 display: none;
             }
 
@@ -550,176 +635,195 @@
         }
 
         /* Modal Styles */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-}
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
 
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-.modal {
-    background: white;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 600px;
-    max-height: 85vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    transform: translateY(20px);
-    transition: transform 0.4s ease;
-    position: relative;
-}
+        .modal {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            position: relative;
+        }
 
-.modal-overlay.active .modal {
-    transform: translateY(0);
-}
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
 
-.modal-header {
-    background: linear-gradient(135deg, var(--indigo), #7b2cbf);
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
-    border-radius: 20px 20px 0 0;
-}
+        .modal-header {
+            background: linear-gradient(135deg, var(--indigo), #7b2cbf);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
 
-.modal-header h3 {
-    font-size: 1.8rem;
-    margin: 0;
-}
+        .modal-header h3 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
 
-.modal-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: rgba(255,255,255,0.2);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-}
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
 
-.modal-close:hover {
-    background: var(--coral);
-    transform: rotate(90deg);
-}
+        .modal-close:hover {
+            background: var(--coral);
+            transform: rotate(90deg);
+        }
 
-.modal-body {
-    padding: 1.8rem;
-}
+        .modal-body {
+            padding: 1.8rem;
+        }
 
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.2rem;
-    margin-top: 1.5rem;
-}
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
 
-.pricing-card {
-    background: #f8fafc;
-    border-radius: 16px;
-    padding: 1.4rem 1rem;
-    text-align: center;
-    border: 2px solid #e2e8f0;
-    transition: all 0.3s ease;
-}
+        .pricing-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.4rem 1rem;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
 
-.pricing-card:hover {
-    border-color: var(--teal);
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
+        .pricing-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
 
-.pricing-card h4 {
-    font-weight: 700;
-    color: var(--indigo);
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
+        .pricing-card h4 {
+            font-weight: 700;
+            color: var(--indigo);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
 
-.pricing-card .price {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin: 0.4rem 0;
-}
+        .pricing-card .price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 0.4rem 0;
+        }
 
-.pricing-card .price span {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #777;
-}
+        .pricing-card .price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #777;
+        }
 
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
-    font-size: 0.95rem;
-    color: #555;
-}
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
 
-.pricing-card ul li {
-    padding: 0.3rem 0;
-    position: relative;
-}
+        .pricing-card ul li {
+            padding: 0.3rem 0;
+            position: relative;
+        }
 
-.pricing-card ul li::before {
-    content: "✓";
-    color: var(--teal);
-    font-weight: bold;
-    margin-right: 0.4rem;
-}
+        .pricing-card ul li::before {
+            content: "✓";
+            color: var(--teal);
+            font-weight: bold;
+            margin-right: 0.4rem;
+        }
 
-.cta-btn {
-    display: block;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    background: linear-gradient(45deg, var(--coral), #ff8e8e);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-}
+        .cta-btn {
+            display: block;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: linear-gradient(45deg, var(--coral), #ff8e8e);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
-.cta-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 12px rgba(255,107,107,0.4);
-}
+        .cta-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(255,107,107,0.4);
+        }
 
-/* Responsive modal */
-@media (max-width: 576px) {
-    .modal {
-        width: 95%;
-        margin: 1rem;
-    }
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        /* Responsive modal */
+        @media (max-width: 576px) {
+            .modal {
+                width: 95%;
+                margin: 1rem;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Nav Backdrop (dynamically added) */
+        .nav-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.nav-open .nav-backdrop {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -734,6 +838,12 @@
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="/works">Our Works</a></li>
             </ul>
+            <!-- Hamburger Button -->
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -875,7 +985,6 @@
         </div>
     </section>
 
-
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
@@ -915,22 +1024,25 @@
         </div>
     </footer>
 
-<!-- Service Modal -->
-<div class="modal-overlay" id="serviceModal">
-    <div class="modal">
-        <div class="modal-header">
-            <h3 id="modalServiceTitle">Service Details</h3>
-            <button class="modal-close" id="modalCloseBtn">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p id="modalServiceDesc">Service description goes here.</p>
-            <div class="pricing-grid" id="pricingGrid">
-                <!-- Pricing cards injected via JS -->
+    <!-- Service Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalServiceTitle">Service Details</h3>
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
             </div>
-            <button class="cta-btn" onclick="openContact()">📩 Get Custom Quote</button>
+            <div class="modal-body">
+                <p id="modalServiceDesc">Service description goes here.</p>
+                <div class="pricing-grid" id="pricingGrid">
+                    <!-- Pricing cards injected via JS -->
+                </div>
+                <button class="cta-btn" onclick="openContact()">📩 Get Custom Quote</button>
+            </div>
         </div>
     </div>
-</div>
+
+    <!-- Nav Backdrop (added via JS, but safe to include for clarity) -->
+
 
     <script>
     // Service data with pricing
@@ -993,7 +1105,13 @@
     const closeBtn = document.getElementById('modalCloseBtn');
     const serviceCards = document.querySelectorAll('.service-card');
 
-    // Open modal
+    // Mobile Nav
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+    const backdrop = document.querySelector('.nav-backdrop');
+
+    // Open service modal
     function openServiceModal(serviceName) {
         const service = servicesData[serviceName];
         if (!service) return;
@@ -1001,7 +1119,6 @@
         modalTitle.textContent = serviceName;
         modalDesc.textContent = service.description;
 
-        // Generate pricing cards
         pricingGrid.innerHTML = service.pricing.map(plan => `
             <div class="pricing-card">
                 <h4>${plan.name}</h4>
@@ -1016,33 +1133,53 @@
         document.body.style.overflow = 'hidden';
     }
 
-    // Close modal
+    // Close service modal
     function closeServiceModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    // Attach click events to service cards
+    // Attach click to service cards
     serviceCards.forEach(card => {
         const title = card.querySelector('h3').textContent;
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => openServiceModal(title));
     });
 
-    // Event listeners
+    // Service modal controls
     closeBtn.addEventListener('click', closeServiceModal);
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeServiceModal();
     });
-
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeServiceModal();
         }
     });
 
-    // Smooth scroll & animation on load
+    // Mobile nav toggle
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        body.classList.toggle('nav-open');
+    });
+
+    // Close mobile nav on backdrop or link click
+    backdrop.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.classList.remove('nav-open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            body.classList.remove('nav-open');
+        });
+    });
+
+    // Scroll animations
     document.addEventListener('DOMContentLoaded', function() {
         const animateElements = document.querySelectorAll('.animate');
         const observer = new IntersectionObserver((entries) => {
@@ -1060,8 +1197,7 @@
         closeServiceModal();
         document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
     }
-</script>
+    </script>
 
 </body>
 </html>
-
