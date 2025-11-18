@@ -7,6 +7,7 @@
     <meta name="description" content="SuyashGraphics: Where creativity meets print. Stunning logos, invitations, visiting cards, posters & more — designed & printed to perfection.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -825,6 +826,225 @@
             visibility: visible;
         }
     </style>
+
+    <!-- Optional: Pulse animation for floating button -->
+<style>
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(94, 96, 206, 0.4); }
+    70% { box-shadow: 0 0 0 12px rgba(94, 96, 206, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(94, 96, 206, 0); }
+  }
+
+  /* Ensure chat stays above all (but below modals) */
+  #n8n-chat-wrap {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 360px;
+    height: 520px;
+    max-width: 90vw;
+    max-height: 75vh;
+    z-index: 1200; /* Below modal (2000) and mobile nav (1100) is fine, but keep above content */
+  }
+
+  n8n-chat, n8n-chat-widget {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+  }
+
+  @media (max-width: 480px) {
+    #n8n-chat-wrap {
+      width: 95vw;
+      height: 60vh;
+      right: 2.5vw;
+      bottom: 2.5vh;
+    }
+  }
+
+
+  /* Quote Modal Specific Styles */
+.quote-modal {
+  width: 95%;
+  max-width: 560px;
+  max-height: 90vh;
+}
+
+.quote-modal .modal-header {
+  background: linear-gradient(135deg, var(--indigo), #7b2cbf);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+}
+
+.quote-modal .modal-body {
+  padding: 1.8rem 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Form inside modal */
+.quote-modal .form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.quote-modal .form-group {
+  flex: 1;
+}
+
+.quote-modal .form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 1rem;
+}
+
+.quote-modal .form-group label span {
+  color: var(--coral);
+}
+
+.quote-modal .form-group input,
+.quote-modal .form-group select,
+.quote-modal .form-group textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: #fafbff;
+}
+
+.quote-modal .form-group input:focus,
+.quote-modal .form-group select:focus,
+.quote-modal .form-group textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0, 201, 177, 0.2);
+  background: white;
+}
+
+.quote-modal .form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* File upload */
+.quote-modal .file-upload {
+  position: relative;
+}
+
+.quote-modal .file-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #718096;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.quote-modal .file-label:hover {
+  border-color: var(--teal);
+  background: rgba(0, 201, 177, 0.05);
+}
+
+.quote-modal .file-label i {
+  font-size: 1.2rem;
+}
+
+.quote-modal input[type="file"] {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+}
+
+.quote-modal .file-list {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.quote-modal .file-list::before {
+  content: "📁 Attached:";
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #4a5568;
+}
+
+.quote-modal .file-list span {
+  background: rgba(94, 96, 206, 0.1);
+  color: var(--indigo);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-right: 0.3rem;
+}
+
+.quote-modal .form-actions {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.quote-modal .form-note {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #718096;
+  font-style: italic;
+}
+
+.quote-modal .form-success {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+
+.quote-modal .check-animation {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--teal), var(--coral));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  animation: pulse 0.8s ease-out, float 3s ease-in-out infinite;
+}
+
+.quote-modal .form-success h3 {
+  font-size: 1.6rem;
+  color: var(--dark);
+  margin-bottom: 0.6rem;
+}
+
+.quote-modal .form-success p {
+  color: #64748b;
+  margin-bottom: 1.2rem;
+}
+
+/* Responsive modal */
+@media (max-width: 576px) {
+  .quote-modal {
+    width: 95%;
+    margin: 1rem;
+  }
+  .quote-modal .form-row {
+    flex-direction: column;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -853,7 +1073,7 @@
             <h1>Design That <span style="color:var(--coral)">Pops</span>, Print That <span style="color:var(--teal)">Wows</span></h1>
             <p>From bold logos to elegant invitations — we craft visuals that speak, print that lasts, and impressions that stick.</p>
             <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get Started</a>
+                <!--<a data-action="open-quote" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get a Quote</a>-->
                 <a href="#services" class="btn btn-secondary"><i class="fas fa-star"></i> View Services</a>
             </div>
         </div>
@@ -1041,6 +1261,83 @@
         </div>
     </div>
 
+
+    <!-- Service Request Modal -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal quote-modal">
+    <div class="modal-header">
+      <h3>🎨 Request a Quote</h3>
+      <button class="modal-close" id="quoteModalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="serviceRequestForm" action="form" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name <span>*</span></label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span>*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="hello@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Required <span>*</span></label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="visiting-cards">Visiting Cards</option>
+            <option value="logo-design">Logo Design</option>
+            <option value="posters-pamphlets">Posters & Pamphlets</option>
+            <option value="invitations">Invitations (Wedding/Birthday)</option>
+            <option value="billbooks-stationery">Billbooks & Stationery</option>
+            <option value="premium-printing">Premium Printing</option>
+            <option value="other">Other (Please specify)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Project Details <span>*</span></label>
+          <textarea id="details" name="details" rows="4" placeholder="E.g., Quantity, size, deadline, special requests (foil, UV, custom shape, etc.)" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="reference">Reference Images (Optional)</label>
+          <div class="file-upload">
+            <input type="file" id="reference" name="reference" accept="image/*" multiple>
+            <label for="reference" class="file-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Upload files (PNG/JPG)</span>
+            </label>
+            <div class="file-list" id="fileList"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Get My Quote
+          </button>
+          <p class="form-note">📞 We’ll call within 2 hours! Kolhapur-based, same-day draft possible.</p>
+        </div>
+      </form>
+
+      <div class="form-success" id="formSuccess" style="display: none;">
+        <div class="check-animation">✓</div>
+        <h3>Thank You!</h3>
+        <p>We’ve received your request. Mr. Suyash will contact you shortly 🎨✨</p>
+        <button class="btn btn-secondary" onclick=resetQuoteForm()>Send Another</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
     <!-- Nav Backdrop (added via JS, but safe to include for clarity) -->
 
 
@@ -1198,6 +1495,153 @@
         document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
     }
     </script>
+
+    <!-- n8n Chat Script -->
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://ramn8n.onrender.com/webhook/d2d63d52-36a4-4e67-97f7-f8bbbc506af0/chat', // 🔑 Replace with your production webhook URL
+    position: 'custom',
+    theme: {
+      // ✅ Gradient-matched to your site: indigo → purple → teal
+      colorPrimary: '#5e60ce', // var(--indigo)
+      colorSecondary: '#00c9b1', // var(--teal)
+      // Enhanced styling to match your UI
+      borderRadius: 16,
+      fontFamily: 'Poppins, sans-serif',
+      backgroundColor: 'white',
+      // Custom header gradient (like your navbar)
+      headerStyle: {
+        background: 'linear-gradient(90deg, #5e60ce, #7b2cbf, #00c9b1)',
+        color: 'white',
+        boxShadow: '0 4px 20px rgba(94, 96, 206, 0.3)'
+      },
+      // Floating button (when collapsed)
+      buttonStyle: {
+        background: 'linear-gradient(135deg, #5e60ce, #ff6b6b, #ffd166)',
+        width: '60px',
+        height: '60px',
+        borderRadius: '50%',
+        boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
+        iconColor: 'white',
+        animation: 'pulse 2s infinite'
+      }
+    },
+    enableStreaming: true,
+    initialMessages: ['👋 Hi! I’m Suyash’s AI assistant — how can I help with design or printing today?']
+  });
+
+  // ===== Quote Modal Logic =====
+// ===== Quote Modal Logic =====
+const quoteModal = document.getElementById('quoteModal');
+const quoteModalClose = document.getElementById('quoteModalClose');
+const openQuoteButtons = document.querySelectorAll('a[href="#contact"], .btn-primary[href="#contact"], .cta-btn');
+
+function openQuoteModal() {
+  quoteModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('name')?.focus(), 300);
+}
+
+function closeQuoteModal() {
+  quoteModal.classList.remove('active');
+  document.body.style.overflow = '';
+  resetQuoteForm();
+}
+
+openQuoteButtons.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    openQuoteModal();
+  });
+});
+
+quoteModalClose?.addEventListener('click', closeQuoteModal);
+quoteModal?.addEventListener('click', (e) => {
+  if (e.target === quoteModal) closeQuoteModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && quoteModal.classList.contains('active')) {
+    closeQuoteModal();
+  }
+});
+
+
+
+// File upload preview
+document.getElementById('reference')?.addEventListener('change', function(e) {
+  const fileList = document.getElementById('fileList');
+  fileList.innerHTML = '';
+  if (this.files.length > 0) {
+    const names = Array.from(this.files).map(f => f.name).join(', ');
+    fileList.innerHTML = `<span>${names}</span>`;
+  }
+});
+
+// ✅ FORM SUBMISSION TO YOUR PYTHON BACKEND
+document.getElementById('serviceRequestForm')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const form = this;
+  const formData = new FormData(form);
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+  try {
+    const response = await fetch('/form', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      throw new Error(`Server error: ${result.text || response.statusText}`);
+    }
+
+  } catch (error) {
+    alert(`Oops! Something went wrong: ${error.message}`);
+    console.error('Submission failed:', error);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  }
+});
+
+function resetQuoteForm() {
+  const modal = document.getElementById('quoteModal');
+  if (!modal) return;
+
+  if (!modal.classList.contains('active')) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  const form = document.getElementById('serviceRequestForm');
+  const success = document.getElementById('formSuccess');
+  const fileList = document.getElementById('fileList');
+
+  if (form) form.reset();
+  if (success) success.style.display = 'none';
+  if (fileList) fileList.innerHTML = '';
+
+  if (form) form.style.display = 'block';
+
+  document.querySelectorAll('#serviceRequestForm input, #serviceRequestForm textarea, #serviceRequestForm select')
+    .forEach(el => el.style.borderColor = '#e2e8f0');
+
+  setTimeout(() => document.getElementById('name')?.focus(), 100);
+}</script>
+
+
 
 </body>
 </html>
