@@ -22,7 +22,7 @@ def file():
     data["file_available"] = file_available
 
     resp = requests.post(
-        "https://ramn8n.onrender.com/webhook/eedbf18e-1904-4105-b9bf-67d51454b0cd",
+        "https://ramn8n.onrender.com/webhook/0b38e455-e3d6-4d83-bd1c-70b5380ee5db",
         files = files,
         data = data,
         timeout = 60

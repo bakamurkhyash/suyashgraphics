@@ -7,14 +7,13 @@
     <meta name="description" content="SuyashGraphics: Where creativity meets print. Stunning logos, invitations, visiting cards, posters & more — designed & printed to perfection.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-      <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --teal: #00c9b1;
             --coral: #ff6b6b;
@@ -23,7 +22,6 @@
             --dark: #1a1a2e;
             --light: #f8f9fa;
         }
-
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -31,13 +29,11 @@
             background: linear-gradient(135deg, #768bad 0%, #9bc0e1 100%);
             overflow-x: hidden;
         }
-
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         /* Scroll Reveal */
         @keyframes fadeInUp {
             from {
@@ -49,19 +45,16 @@
                 transform: translateY(0);
             }
         }
-
         .animate {
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
         }
-
         .animate:nth-child(1) { animation-delay: 0.1s; }
         .animate:nth-child(2) { animation-delay: 0.2s; }
         .animate:nth-child(3) { animation-delay: 0.3s; }
         .animate:nth-child(4) { animation-delay: 0.4s; }
         .animate:nth-child(5) { animation-delay: 0.5s; }
         .animate:nth-child(6) { animation-delay: 0.6s; }
-
         /* Header */
         header {
             background: linear-gradient(90deg, var(--indigo), #7b2cbf, var(--teal));
@@ -74,19 +67,16 @@
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
-
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.2rem;
@@ -97,16 +87,13 @@
             color: transparent;
             letter-spacing: -1px;
         }
-
         .nav-links {
             display: flex;
             list-style: none;
         }
-
         .nav-links li {
             margin-left: 1.8rem;
         }
-
         .nav-links a {
             color: white;
             text-decoration: none;
@@ -115,7 +102,6 @@
             position: relative;
             padding: 0.4rem 0;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -127,11 +113,9 @@
             border-radius: 2px;
             transition: width 0.3s ease;
         }
-
         .nav-links a:hover::after {
             width: 100%;
         }
-
         /* Hamburger Button */
         .hamburger {
             display: none;
@@ -145,7 +129,6 @@
             padding: 0;
             z-index: 1500;
         }
-
         .hamburger span {
             width: 100%;
             height: 3px;
@@ -154,7 +137,6 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         .hamburger.active span:first-child {
             transform: rotate(45deg) translate(5px, 5px);
         }
@@ -164,7 +146,6 @@
         .hamburger.active span:last-child {
             transform: rotate(-45deg) translate(5px, -5px);
         }
-
         /* Hero */
         .hero {
             height: 90vh;
@@ -173,7 +154,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -185,7 +165,6 @@
             background: radial-gradient(circle, rgba(255,209,102,0.15) 0%, transparent 70%);
             z-index: 0;
         }
-
         .hero::after {
             content: '';
             position: absolute;
@@ -197,14 +176,12 @@
             background: radial-gradient(circle, rgba(0,201,177,0.1) 0%, transparent 70%);
             z-index: 0;
         }
-
         .hero-content {
             position: relative;
             color: white;
             max-width: 650px;
             z-index: 2;
         }
-
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 4.2rem;
@@ -218,24 +195,20 @@
             background-size: 300% 300%;
             animation: shine 4s infinite alternate;
         }
-
         @keyframes shine {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
-
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             color: rgba(255,255,255,0.92);
             max-width: 600px;
         }
-
         .hero-btns {
             display: flex;
             gap: 1rem;
         }
-
         .btn {
             display: inline-flex;
             align-items: center;
@@ -248,62 +221,56 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
-
         .btn-primary {
             background: linear-gradient(45deg, var(--coral), #ff8e8e);
             color: white;
         }
-
         .btn-secondary {
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(10px);
             color: white;
             border: 2px solid rgba(255,255,255,0.3);
         }
-
         .btn:hover {
             transform: translateY(-5px) scale(1.03);
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
-
         /* Divider SVG */
         .divider {
             margin: 2rem auto;
             width: 90%;
             max-width: 1000px;
+            position: relative;
+            z-index: 1;
         }
-
         /* Services */
         .services {
             padding: 6rem 0 4rem;
             background: white;
+            position: relative;
+            z-index: 2;
         }
-
         .section-title {
             text-align: center;
             margin-bottom: 3.5rem;
         }
-
         .section-title h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.8rem;
             color: var(--dark);
             margin-bottom: 1rem;
         }
-
         .section-title p {
             color: #666;
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.15rem;
         }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.2rem;
         }
-
         .service-card {
             background: white;
             border-radius: 20px;
@@ -312,8 +279,9 @@
             transition: all 0.4s ease;
             position: relative;
             z-index: 1;
+            cursor: pointer; /* ✅ Explicit cursor */
         }
-
+        /* ✅ FIX: Ensure ::before doesn't block clicks */
         .service-card::before {
             content: '';
             position: absolute;
@@ -322,19 +290,20 @@
             width: 100%;
             height: 5px;
             background: linear-gradient(90deg, var(--teal), var(--coral), var(--gold));
-            z-index: 2;
+            z-index: 1; /* Lower than content */
         }
-
+        .service-card > * {
+            position: relative;
+            z-index: 2; /* Content on top */
+        }
         .service-card:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-
         .service-header {
             padding: 1.8rem 1.5rem 1.2rem;
             text-align: center;
         }
-
         .service-icon {
             width: 80px;
             height: 80px;
@@ -348,43 +317,36 @@
             color: var(--indigo);
             transition: all 0.4s ease;
         }
-
         .service-card:hover .service-icon {
             transform: scale(1.15) rotate(10deg);
             background: linear-gradient(135deg, var(--teal), var(--coral));
             color: white;
             box-shadow: 0 8px 20px rgba(0,201,177,0.4);
         }
-
         .service-card h3 {
             font-size: 1.5rem;
             color: var(--dark);
             margin-bottom: 0.8rem;
         }
-
         .service-card p {
             color: #666;
             font-size: 1.02rem;
         }
-
         .service-body {
             padding: 0 1.5rem 1.8rem;
             text-align: center;
         }
-
         /* Why Choose Us */
         .why-us {
             padding: 5rem 0;
             background: linear-gradient(135deg, #f0f4ff 0%, #e6f7f5 100%);
             position: relative;
         }
-
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
-
         .feature-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
@@ -395,13 +357,11 @@
             transition: all 0.4s ease;
             border: 1px solid rgba(255,255,255,0.6);
         }
-
         .feature-card:hover {
             transform: translateY(-8px);
             background: white;
             box-shadow: 0 12px 30px rgba(94, 96, 206, 0.2);
         }
-
         .feature-icon {
             width: 70px;
             height: 70px;
@@ -414,13 +374,11 @@
             font-size: 1.8rem;
             color: white;
         }
-
         .feature-card h3 {
             font-size: 1.4rem;
             color: var(--dark);
             margin-bottom: 0.8rem;
         }
-
         /* CTA */
         .cta {
             padding: 6rem 0;
@@ -432,7 +390,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .cta::before {
             content: '';
             position: absolute;
@@ -443,7 +400,6 @@
             border-radius: 50%;
             background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
         }
-
         .cta h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.6rem;
@@ -452,28 +408,24 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .cta p {
             max-width: 700px;
             margin: 0 auto 2.5rem;
             font-size: 1.2rem;
             opacity: 0.95;
         }
-
         /* Footer */
         footer {
             background: var(--dark);
             color: #aaa;
             padding: 5rem 0 2rem;
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2.5rem;
             margin-bottom: 3rem;
         }
-
         .footer-column h3 {
             color: white;
             margin-bottom: 1.5rem;
@@ -481,7 +433,6 @@
             position: relative;
             padding-bottom: 0.6rem;
         }
-
         .footer-column h3::after {
             content: '';
             position: absolute;
@@ -492,15 +443,12 @@
             background: var(--gold);
             border-radius: 2px;
         }
-
         .footer-column ul {
             list-style: none;
         }
-
         .footer-column ul li {
             margin-bottom: 0.9rem;
         }
-
         .footer-column ul li a {
             color: #bbb;
             text-decoration: none;
@@ -509,17 +457,14 @@
             align-items: center;
             gap: 0.6rem;
         }
-
         .footer-column ul li a:hover {
             color: var(--gold);
         }
-
         .social-icons {
             display: flex;
             gap: 1rem;
             margin-top: 1.2rem;
         }
-
         .social-icons a {
             display: flex;
             align-items: center;
@@ -532,12 +477,10 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-
         .social-icons a:hover {
             background: var(--coral);
             transform: translateY(-3px);
         }
-
         .copyright {
             text-align: center;
             padding-top: 2rem;
@@ -545,15 +488,11 @@
             font-size: 0.95rem;
             color: #777;
         }
-
         /* Responsive */
         @media (max-width: 768px) {
-            /* Hamburger visible */
             .hamburger {
                 display: flex;
             }
-
-            /* Desktop nav hidden visually by moving off-screen */
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -573,15 +512,12 @@
                 transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 box-shadow: -5px 0 25px rgba(0,0,0,0.2);
             }
-
             .nav-links.active {
                 right: 0;
             }
-
             .nav-links li {
                 margin: 0;
             }
-
             .nav-links a {
                 display: block;
                 color: white;
@@ -594,33 +530,26 @@
                 border-radius: 12px;
                 transition: background 0.3s;
             }
-
             .nav-links a:hover,
             .nav-links a:focus {
                 background: rgba(255,255,255,0.15);
             }
-
             .nav-links a::after {
                 display: none;
             }
-
             .hero h1 {
                 font-size: 2.8rem;
             }
-
             .hero p {
                 font-size: 1.1rem;
             }
-
             .hero-btns {
                 flex-direction: column;
             }
-
             .btn {
                 justify-content: center;
             }
         }
-
         /* Animation on scroll */
         @media (prefers-reduced-motion: no-preference) {
             .animate {
@@ -628,13 +557,11 @@
                 transform: translateY(30px);
                 transition: opacity 0.6s ease, transform 0.6s ease;
             }
-            
             .animate.appear {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         /* Modal Styles */
         .modal-overlay {
             position: fixed;
@@ -652,12 +579,10 @@
             visibility: hidden;
             transition: all 0.4s ease;
         }
-
         .modal-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-
         .modal {
             background: white;
             border-radius: 20px;
@@ -670,11 +595,9 @@
             transition: transform 0.4s ease;
             position: relative;
         }
-
         .modal-overlay.active .modal {
             transform: translateY(0);
         }
-
         .modal-header {
             background: linear-gradient(135deg, var(--indigo), #7b2cbf);
             color: white;
@@ -682,12 +605,10 @@
             text-align: center;
             border-radius: 20px 20px 0 0;
         }
-
         .modal-header h3 {
             font-size: 1.8rem;
             margin: 0;
         }
-
         .modal-close {
             position: absolute;
             top: 15px;
@@ -705,23 +626,19 @@
             justify-content: center;
             transition: all 0.3s;
         }
-
         .modal-close:hover {
             background: var(--coral);
             transform: rotate(90deg);
         }
-
         .modal-body {
             padding: 1.8rem;
         }
-
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.2rem;
             margin-top: 1.5rem;
         }
-
         .pricing-card {
             background: #f8fafc;
             border-radius: 16px;
@@ -730,33 +647,28 @@
             border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
         }
-
         .pricing-card:hover {
             border-color: var(--teal);
             transform: translateY(-5px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.08);
         }
-
         .pricing-card h4 {
             font-weight: 700;
             color: var(--indigo);
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
-
         .pricing-card .price {
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--dark);
             margin: 0.4rem 0;
         }
-
         .pricing-card .price span {
             font-size: 0.9rem;
             font-weight: 400;
             color: #777;
         }
-
         .pricing-card ul {
             list-style: none;
             padding: 0;
@@ -764,19 +676,16 @@
             font-size: 0.95rem;
             color: #555;
         }
-
         .pricing-card ul li {
             padding: 0.3rem 0;
             position: relative;
         }
-
         .pricing-card ul li::before {
             content: "✓";
             color: var(--teal);
             font-weight: bold;
             margin-right: 0.4rem;
         }
-
         .cta-btn {
             display: block;
             width: 100%;
@@ -790,12 +699,10 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
         .cta-btn:hover {
             transform: scale(1.03);
             box-shadow: 0 4px 12px rgba(255,107,107,0.4);
         }
-
         /* Responsive modal */
         @media (max-width: 576px) {
             .modal {
@@ -806,248 +713,221 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Nav Backdrop (dynamically added) */
-        .nav-backdrop {
+        /* Nav & Quote Modal Backdrop */
+        .nav-backdrop,
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
             z-index: 1050;
+        }
+        .nav-backdrop {
+            background: rgba(0,0,0,0.5);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
         }
-
         body.nav-open .nav-backdrop {
             opacity: 1;
             visibility: visible;
         }
+        /* Quote Modal Specific Styles */
+        .quote-modal {
+            width: 95%;
+            max-width: 560px;
+            max-height: 90vh;
+        }
+        .quote-modal .modal-header {
+            background: linear-gradient(135deg, var(--indigo), #7b2cbf);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+        .quote-modal .modal-body {
+            padding: 1.8rem 1.5rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .quote-modal .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .quote-modal .form-group {
+            flex: 1;
+        }
+        .quote-modal .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+        .quote-modal .form-group label span {
+            color: var(--coral);
+        }
+        .quote-modal .form-group input,
+        .quote-modal .form-group select,
+        .quote-modal .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #fafbff;
+        }
+        .quote-modal .form-group input:focus,
+        .quote-modal .form-group select:focus,
+        .quote-modal .form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0, 201, 177, 0.2);
+            background: white;
+        }
+        .quote-modal .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .quote-modal .file-upload {
+            position: relative;
+        }
+        .quote-modal .file-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.9rem;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            background: #f8fafc;
+            color: #718096;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .quote-modal .file-label:hover {
+            border-color: var(--teal);
+            background: rgba(0, 201, 177, 0.05);
+        }
+        .quote-modal .file-label i {
+            font-size: 1.2rem;
+        }
+        .quote-modal input[type="file"] {
+            position: absolute;
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+        }
+        .quote-modal .file-list {
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+        }
+        .quote-modal .file-list::before {
+            content: "📁 Attached:";
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #4a5568;
+        }
+        .quote-modal .file-list span {
+            background: rgba(94, 96, 206, 0.1);
+            color: var(--indigo);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-right: 0.3rem;
+        }
+        .quote-modal .form-actions {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        .quote-modal .form-note {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #718096;
+            font-style: italic;
+        }
+        .quote-modal .form-success {
+            text-align: center;
+            padding: 1.5rem 0.5rem;
+        }
+        .quote-modal .check-animation {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--teal), var(--coral));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            animation: pulse 0.8s ease-out, float 3s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .quote-modal .form-success h3 {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-bottom: 0.6rem;
+        }
+        .quote-modal .form-success p {
+            color: #64748b;
+            margin-bottom: 1.2rem;
+        }
+        @media (max-width: 576px) {
+            .quote-modal {
+                width: 95%;
+                margin: 1rem;
+            }
+            .quote-modal .form-row {
+                flex-direction: column;
+            }
+        }
+        /* Chat Widget */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(94, 96, 206, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(94, 96, 206, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(94, 96, 206, 0); }
+        }
+        #n8n-chat-wrap {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            width: 360px;
+            height: 520px;
+            max-width: 90vw;
+            max-height: 75vh;
+            z-index: 1200;
+        }
+        n8n-chat, n8n-chat-widget {
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+        }
+        @media (max-width: 480px) {
+            #n8n-chat-wrap {
+                width: 95vw;
+                height: 60vh;
+                right: 2.5vw;
+                bottom: 2.5vh;
+            }
+        }
     </style>
-
-    <!-- Optional: Pulse animation for floating button -->
-<style>
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(94, 96, 206, 0.4); }
-    70% { box-shadow: 0 0 0 12px rgba(94, 96, 206, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(94, 96, 206, 0); }
-  }
-
-  /* Ensure chat stays above all (but below modals) */
-  #n8n-chat-wrap {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    width: 360px;
-    height: 520px;
-    max-width: 90vw;
-    max-height: 75vh;
-    z-index: 1200; /* Below modal (2000) and mobile nav (1100) is fine, but keep above content */
-  }
-
-  n8n-chat, n8n-chat-widget {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-  }
-
-  @media (max-width: 480px) {
-    #n8n-chat-wrap {
-      width: 95vw;
-      height: 60vh;
-      right: 2.5vw;
-      bottom: 2.5vh;
-    }
-  }
-
-
-  /* Quote Modal Specific Styles */
-.quote-modal {
-  width: 95%;
-  max-width: 560px;
-  max-height: 90vh;
-}
-
-.quote-modal .modal-header {
-  background: linear-gradient(135deg, var(--indigo), #7b2cbf);
-  color: white;
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: 20px 20px 0 0;
-}
-
-.quote-modal .modal-body {
-  padding: 1.8rem 1.5rem;
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-/* Form inside modal */
-.quote-modal .form-row {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.quote-modal .form-group {
-  flex: 1;
-}
-
-.quote-modal .form-group label {
-  display: block;
-  margin-bottom: 0.6rem;
-  font-weight: 600;
-  color: var(--dark);
-  font-size: 1rem;
-}
-
-.quote-modal .form-group label span {
-  color: var(--coral);
-}
-
-.quote-modal .form-group input,
-.quote-modal .form-group select,
-.quote-modal .form-group textarea {
-  width: 100%;
-  padding: 0.9rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  transition: all 0.3s;
-  background: #fafbff;
-}
-
-.quote-modal .form-group input:focus,
-.quote-modal .form-group select:focus,
-.quote-modal .form-group textarea:focus {
-  outline: none;
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(0, 201, 177, 0.2);
-  background: white;
-}
-
-.quote-modal .form-group textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-/* File upload */
-.quote-modal .file-upload {
-  position: relative;
-}
-
-.quote-modal .file-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.9rem;
-  border: 2px dashed #cbd5e1;
-  border-radius: 12px;
-  background: #f8fafc;
-  color: #718096;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 0.9rem;
-}
-
-.quote-modal .file-label:hover {
-  border-color: var(--teal);
-  background: rgba(0, 201, 177, 0.05);
-}
-
-.quote-modal .file-label i {
-  font-size: 1.2rem;
-}
-
-.quote-modal input[type="file"] {
-  position: absolute;
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-}
-
-.quote-modal .file-list {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-}
-
-.quote-modal .file-list::before {
-  content: "📁 Attached:";
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-  color: #4a5568;
-}
-
-.quote-modal .file-list span {
-  background: rgba(94, 96, 206, 0.1);
-  color: var(--indigo);
-  padding: 0.2rem 0.6rem;
-  border-radius: 20px;
-  margin-right: 0.3rem;
-}
-
-.quote-modal .form-actions {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.quote-modal .form-note {
-  margin-top: 0.8rem;
-  font-size: 0.85rem;
-  color: #718096;
-  font-style: italic;
-}
-
-.quote-modal .form-success {
-  text-align: center;
-  padding: 1.5rem 0.5rem;
-}
-
-.quote-modal .check-animation {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 1rem;
-  background: linear-gradient(135deg, var(--teal), var(--coral));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: white;
-  font-weight: bold;
-  animation: pulse 0.8s ease-out, float 3s ease-in-out infinite;
-}
-
-.quote-modal .form-success h3 {
-  font-size: 1.6rem;
-  color: var(--dark);
-  margin-bottom: 0.6rem;
-}
-
-.quote-modal .form-success p {
-  color: #64748b;
-  margin-bottom: 1.2rem;
-}
-
-/* Responsive modal */
-@media (max-width: 576px) {
-  .quote-modal {
-    width: 95%;
-    margin: 1rem;
-  }
-  .quote-modal .form-row {
-    flex-direction: column;
-  }
-}
-</style>
 </head>
 <body>
-
     <!-- Header -->
     <header>
         <div class="container navbar">
@@ -1058,7 +938,6 @@
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="/works">Our Works</a></li>
             </ul>
-            <!-- Hamburger Button -->
             <button class="hamburger" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -1073,8 +952,13 @@
             <h1>Design That <span style="color:var(--coral)">Pops</span>, Print That <span style="color:var(--teal)">Wows</span></h1>
             <p>From bold logos to elegant invitations — we craft visuals that speak, print that lasts, and impressions that stick.</p>
             <div class="hero-btns">
-                <!--<a data-action="open-quote" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get a Quote</a>-->
-                <a href="#services" class="btn btn-secondary"><i class="fas fa-star"></i> View Services</a>
+                <!-- ✅ Fixed: Now opens quote modal -->
+                <a href="#" class="btn btn-primary" data-action="open-quote">
+                    <i class="fas fa-paper-plane"></i> Get a Quote
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <i class="fas fa-star"></i> View Services
+                </a>
             </div>
         </div>
     </section>
@@ -1103,58 +987,59 @@
                 <p>We don’t just design — we tell your story through color, shape, and print.</p>
             </div>
             <div class="services-grid">
+                <!-- ✅ Updated names to match servicesData keys -->
                 <div class="service-card animate">
                     <div class="service-header">
                         <div class="service-icon"><i class="fas fa-id-card-alt"></i></div>
                         <h3>Visiting Cards</h3>
                     </div>
                     <div class="service-body">
-                        <p>Matte, glossy, spot UV, or foil — cards that demand attention and respect.</p>
-                    </div>
-                </div>
-                <div class="service-card animate">
-                    <div class="service-header">
-                        <div class="service-icon"><i class="fas fa-draw-polygon"></i></div>
-                        <h3>Logo Design</h3>
-                    </div>
-                    <div class="service-body">
-                        <p>Unique, scalable, and unforgettable logos that become your brand’s signature.</p>
-                    </div>
-                </div>
-                <div class="service-card animate">
-                    <div class="service-header">
-                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                        <h3>Posters & Pamphlets</h3>
-                    </div>
-                    <div class="service-body">
-                        <p>Bold visuals for events, campaigns, launches, and awareness — designed to convert.</p>
-                    </div>
-                </div>
-                <div class="service-card animate">
-                    <div class="service-header">
-                        <div class="service-icon"><i class="fas fa-gift"></i></div>
-                        <h3>Invitations</h3>
-                    </div>
-                    <div class="service-body">
-                        <p>Weddings, birthdays, corporate — luxurious, thematic, and print-perfect.</p>
+                        <p>1000 pcs, 300 GSM paper, Matte/Gloss finish</p>
                     </div>
                 </div>
                 <div class="service-card animate">
                     <div class="service-header">
                         <div class="service-icon"><i class="fas fa-book"></i></div>
-                        <h3>Billbooks & Stationery</h3>
+                        <h3>Bill Book</h3>
                     </div>
                     <div class="service-body">
-                        <p>Professional, consistent, and branded — from invoices to letterheads.</p>
+                        <p>1/8 or A4 size, with/without stitching</p>
                     </div>
                 </div>
                 <div class="service-card animate">
                     <div class="service-header">
-                        <div class="service-icon"><i class="fas fa-print"></i></div>
-                        <h3>Premium Printing</h3>
+                        <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                        <h3>Letter Head</h3>
                     </div>
                     <div class="service-body">
-                        <p>Offset, digital, large format — on premium stocks with precision finishing.</p>
+                        <p>A4 size, Single/Full color, 100 sheets per book</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h3>Pamphlet (Single Color)</h3>
+                    </div>
+                    <div class="service-body">
+                        <p>1/8 or A4 size, 500–1000 pcs</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h3>Pamphlet (Multi Color)</h3>
+                    </div>
+                    <div class="service-body">
+                        <p>90 GSM Art Paper, 1/8 or A4 size</p>
+                    </div>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-tags"></i></div>
+                        <h3>Sticker</h3>
+                    </div>
+                    <div class="service-body">
+                        <p>12" x 18" sheet, stitching extra</p>
                     </div>
                 </div>
             </div>
@@ -1199,8 +1084,13 @@
             <h2>Let’s Create Something <span style="color:var(--gold)">Brilliant</span> Together</h2>
             <p>Get a free quote in 15 minutes — no obligation, just great ideas.</p>
             <div class="hero-btns">
-                <a href="tel:+919876543210" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Call Now</a>
-                <a href="mailto:hello@suyashgraphics.com" class="btn btn-secondary"><i class="fas fa-envelope"></i> Email Us</a>
+                <!-- ✅ Fixed: Now opens quote modal -->
+                <a href="#" class="btn btn-primary" data-action="open-quote">
+                    <i class="fas fa-phone-alt"></i> Get Quote
+                </a>
+                <a href="mailto:suyashgraphics@gmail.com" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Email Us
+                </a>
             </div>
         </div>
     </section>
@@ -1222,19 +1112,19 @@
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Logo Design</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Business Cards</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Wedding Invites</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Billbooks</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Large Format Printing</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Visiting Cards</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Bill Book</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Letter Head</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pamphlets</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Stickers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Contact</h3>
                     <ul>
                         <li><a href="https://wa.me/+918888574585?text=Hello"><i class="fas fa-phone"></i> +91 88885 74585</a></li>
-                        <li><a href="mailto:suyashgraphics@gmail.com"><i class="fas fa-envelope"></i> suyashgraphics@gmail.com</a></li>
-                        <li><a href="https://www.google.co.in/maps/place/Kolhapur,+Maharashtra/@16.7112262,74.1613993,12.64z/data=!4m6!3m5!1s0x3bc1000cdec07a29:0xece8ea642952e42f!8m2!3d16.706369!4d74.2481772!16zL20vMDF4cG4y?entry=ttu&g_ep=EgoyMDI1MTEwOS4wIKXMDSoASAFQAw%3D%3D"><i class="fas fa-map-marker-alt"></i> Kolhapur </a></li>
+                        <li><a href="mailto:suyash4585waikar@gmail.com"><i class="fas fa-envelope"></i> suyashgraphics@gmail.com</a></li>
+                        <li><a href="https://maps.app.goo.gl/NEprQmzzEQT3JFRH9"><i class="fas fa-map-marker-alt"></i> Kolhapur</a></li>
                     </ul>
                 </div>
             </div>
@@ -1253,395 +1143,335 @@
             </div>
             <div class="modal-body">
                 <p id="modalServiceDesc">Service description goes here.</p>
-                <div class="pricing-grid" id="pricingGrid">
-                    <!-- Pricing cards injected via JS -->
-                </div>
-                <button class="cta-btn" onclick="openContact()">📩 Get Custom Quote</button>
+                <div class="pricing-grid" id="pricingGrid"></div>
+                <button class="cta-btn" onclick="openQuoteModal()">
+                    📩 Get Custom Quote
+                </button>
             </div>
         </div>
     </div>
 
-
-    <!-- Service Request Modal -->
-<div class="modal-overlay" id="quoteModal">
-  <div class="modal quote-modal">
-    <div class="modal-header">
-      <h3>🎨 Request a Quote</h3>
-      <button class="modal-close" id="quoteModalClose">&times;</button>
+    <!-- Quote Modal -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal quote-modal">
+            <div class="modal-header">
+                <h3>🎨 Request a Quote</h3>
+                <button class="modal-close" id="quoteModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="serviceRequestForm" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name <span>*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone <span>*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="hello@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Required <span>*</span></label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="Visiting Cards">Visiting Cards</option>
+                            <option value="Bill Book">Bill Book</option>
+                            <option value="Letter Head">Letter Head</option>
+                            <option value="Pamphlet (Single Color)">Pamphlet (Single Color)</option>
+                            <option value="Pamphlet (Multi Color)">Pamphlet (Multi Color)</option>
+                            <option value="Sticker">Sticker</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Project Details <span>*</span></label>
+                        <textarea id="details" name="details" rows="4" placeholder="E.g., Quantity, size, deadline, special requests (foil, UV, etc.)" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="reference">Reference Images (Optional)</label>
+                        <div class="file-upload">
+                            <input type="file" id="reference" name="reference" accept="image/*" multiple>
+                            <label for="reference" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Upload files (PNG/JPG)</span>
+                            </label>
+                            <div class="file-list" id="fileList"></div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Get My Quote
+                        </button>
+                        <p class="form-note">📞 We’ll call within 2 hours! Kolhapur-based, same-day draft possible.</p>
+                    </div>
+                </form>
+                <div class="form-success" id="formSuccess" style="display: none;">
+                    <div class="check-animation">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>We’ve received your request. Mr. Suyash will contact you shortly 🎨✨</p>
+                    <button class="btn btn-secondary" onclick="resetQuoteForm()">Send Another</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-      <form id="serviceRequestForm" action="form" method="post" enctype="multipart/form-data">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Full Name <span>*</span></label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone <span>*</span></label>
-            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
-          </div>
-        </div>
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="hello@example.com">
-        </div>
+    <!-- Backdrop for Mobile Nav -->
+    <div class="nav-backdrop"></div>
 
-        <div class="form-group">
-          <label for="service">Service Required <span>*</span></label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Select a service</option>
-            <option value="visiting-cards">Visiting Cards</option>
-            <option value="logo-design">Logo Design</option>
-            <option value="posters-pamphlets">Posters & Pamphlets</option>
-            <option value="invitations">Invitations (Wedding/Birthday)</option>
-            <option value="billbooks-stationery">Billbooks & Stationery</option>
-            <option value="premium-printing">Premium Printing</option>
-            <option value="other">Other (Please specify)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="details">Project Details <span>*</span></label>
-          <textarea id="details" name="details" rows="4" placeholder="E.g., Quantity, size, deadline, special requests (foil, UV, custom shape, etc.)" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="reference">Reference Images (Optional)</label>
-          <div class="file-upload">
-            <input type="file" id="reference" name="reference" accept="image/*" multiple>
-            <label for="reference" class="file-label">
-              <i class="fas fa-cloud-upload-alt"></i>
-              <span>Upload files (PNG/JPG)</span>
-            </label>
-            <div class="file-list" id="fileList"></div>
-          </div>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">
-            <i class="fas fa-paper-plane"></i> Get My Quote
-          </button>
-          <p class="form-note">📞 We’ll call within 2 hours! Kolhapur-based, same-day draft possible.</p>
-        </div>
-      </form>
-
-      <div class="form-success" id="formSuccess" style="display: none;">
-        <div class="check-animation">✓</div>
-        <h3>Thank You!</h3>
-        <p>We’ve received your request. Mr. Suyash will contact you shortly 🎨✨</p>
-        <button class="btn btn-secondary" onclick=resetQuoteForm()>Send Another</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    <!-- Nav Backdrop (added via JS, but safe to include for clarity) -->
-
+    <!-- Chat Widget Container -->
+    <div id="n8n-chat-wrap"></div>
 
     <script>
-    // Service data with pricing
-    const servicesData = {
-        "Visiting Cards": {
-            description: "Premium quality visiting cards — the perfect first impression for your brand.",
-            pricing: [
-                { name: "Basic", price: "₹199", per: "/100 pcs", features: ["Matte Finish", "Standard Size", "Digital Print"] },
-                { name: "Premium", price: "₹499", per: "/100 pcs", features: ["Glossy/Spot UV", "Rounded Corners", "Thicker Stock (300 GSM)"] },
-                { name: "Deluxe", price: "₹899", per: "/100 pcs", features: ["Foil Stamping", "Embossing/Debossing", "Custom Shape", "Eco-Friendly Paper"] }
-            ]
-        },
-        "Logo Design": {
-            description: "Unique, scalable, and timeless logo that captures your brand’s essence.",
-            pricing: [
-                { name: "Starter", price: "₹1,499", per: "", features: ["2 Concepts", "2 Revisions", "PNG + JPG"] },
-                { name: "Professional", price: "₹3,499", per: "", features: ["4 Concepts", "Unlimited Revisions", "AI/EPS/PNG/JPG/SVG", "Brand Guidelines (Basic)"] },
-                { name: "Premium", price: "₹6,999", per: "", features: ["Full Brand Identity", "Logo + Stationery + Social Kit", "Animated Logo (GIF)", "Trademark Advice"] }
-            ]
-        },
-        "Posters & Pamphlets": {
-            description: "Eye-catching posters and pamphlets designed to grab attention and drive action.",
-            pricing: [
-                { name: "Single", price: "₹299", per: "/design", features: ["A3 or A4 Size", "1 Side Print", "Standard Paper"] },
-                { name: "Bundle", price: "₹999", per: "/5 designs", features: ["Mix of Sizes", "Double-Sided", "Lamination Option"] },
-                { name: "Campaign", price: "₹2,499", per: "/10+ pcs", features: ["Thematic Series", "QR Integration", "Bulk Offset Print"] }
-            ]
-        },
-        "Invitations": {
-            description: "Elegant, memorable invitations tailored for weddings, birthdays, and corporate events.",
-            pricing: [
-                { name: "Digital", price: "₹499", per: "/set", features: ["High-Res PDF", "Custom Animation", "WhatsApp-Friendly"] },
-                { name: "Printed", price: "₹1,299", per: "/50 pcs", features: ["Premium Paper", "Envelope Included", "Foil/UV Options"] },
-                { name: "Luxury", price: "₹3,499", per: "/50 pcs", features: ["Boxed Set", "Laser Cut", "Scented/Textured Paper", "RSVP Cards"] }
-            ]
-        },
-        "Billbooks & Stationery": {
-            description: "Professional billbooks, letterheads, envelopes — consistent branding for your business.",
-            pricing: [
-                { name: "Starter Kit", price: "₹799", per: "/50 sets", features: ["Billbook + Letterhead", "Standard Print"] },
-                { name: "Business Pack", price: "₹1,999", per: "/100 sets", features: ["Billbook + Letterhead + Envelopes", "Spot UV on Logo"] },
-                { name: "Executive Suite", price: "₹4,499", per: "/200 sets", features: ["Premium Paper", "Foil Branding", "Custom Binding"] }
-            ]
-        },
-        "Premium Printing": {
-            description: "High-end printing solutions — from brochures to banners, with precision finishing.",
-            pricing: [
-                { name: "Digital", price: "₹2.5/pc", per: "/A4", features: ["Fast Turnaround", "Full Color", "Matte/Gloss"] },
-                { name: "Offset", price: "₹1.2/pc", per: "/A4 (min 500)", features: ["Sharper Quality", "Pantone Matching", "Bulk Savings"] },
-                { name: "Large Format", price: "From ₹199/sq.ft", per: "", features: ["Flex/Banner/Vinyl", "Mounting Options", "Weather-Resistant"] }
-            ]
+        // ✅ Services Data — Updated to match your rate card (English)
+        const servicesData = {
+            "Visiting Cards": {
+                description: "1000 cards, 300 GSM paper, Matte/Gloss finish",
+                pricing: [
+                    { name: "Single Side", price: "₹649", per: "/lot", features: ["1000 pcs", "300 GSM paper", "Matte/Gloss finish"] },
+                    { name: "Both Sides", price: "₹899", per: "/lot", features: ["1000 pcs", "300 GSM paper", "Print on both sides"] }
+                ]
+            },
+            "Bill Book": {
+                description: "1/8 or A4 size, with/without stitching",
+                pricing: [
+                    { name: "1/8 Size – 5 Books", price: "₹1,099", per: "/with stitching", features: ["1/8 size", "5 books", "With stitching"] },
+                    { name: "1/8 Size – 10 Books", price: "₹1,499", per: "/with stitching", features: ["1/8 size", "10 books", "With stitching"] },
+                    { name: "A4 Size – 5 Books", price: "₹1,299", per: "/with binding", features: ["A4 size", "5 books", "With binding"] },
+                    { name: "A4 Size – 10 Books", price: "₹2,199", per: "/with stitching", features: ["A4 size", "10 books", "With stitching"] }
+                ]
+            },
+            "Letter Head": {
+                description: "A4 size, Single/Full color, 100 sheets per book",
+                pricing: [
+                    { name: "A4 Single Color – 1 Book", price: "₹499", per: "/book", features: ["A4 size", "Single color", "100 sheets"] },
+                    { name: "A4 Single Color – 5 Books", price: "₹1,499", per: "/5 books", features: ["A4 size", "Single color", "100 sheets each"] },
+                    { name: "A4 Single Color – 10 Books", price: "₹2,299", per: "/10 books", features: ["A4 size", "Single color", "100 sheets each"] },
+                    { name: "A4 Full Color – 1 Book", price: "₹849", per: "/book", features: ["A4 size", "Full color", "100 sheets"] },
+                    { name: "A4 Full Color – 5 Books", price: "₹2,299", per: "/5 books", features: ["A4 size", "Full color", "100 sheets each"] },
+                    { name: "A4 Full Color – 10 Books", price: "₹3,499", per: "/10 books", features: ["A4 size", "Full color", "100 sheets each"] }
+                ]
+            },
+            "Pamphlet (Single Color)": {
+                description: "1/8 or A4 size, 500–1000 pcs",
+                pricing: [
+                    { name: "1/8 Size – 500 pcs", price: "₹649", per: "/lot", features: ["1/8 size", "Single color", "500 pcs"] },
+                    { name: "1/8 Size – 1000 pcs", price: "₹899", per: "/lot", features: ["1/8 size", "Single color", "1000 pcs"] },
+                    { name: "A4 Size – 500 pcs", price: "₹899", per: "/lot", features: ["A4 size", "Single color", "500 pcs"] },
+                    { name: "A4 Size – 1000 pcs", price: "₹1,149", per: "/lot", features: ["A4 size", "Single color", "1000 pcs"] }
+                ]
+            },
+            "Pamphlet (Multi Color)": {
+                description: "90 GSM Art Paper, 1/8 or A4 size",
+                pricing: [
+                    { name: "1/8 Size – 100 pcs", price: "₹749", per: "/lot", features: ["90 GSM Art Paper", "1/8 size", "100 pcs"] },
+                    { name: "1/8 Size – 500 pcs", price: "₹1,849", per: "/lot", features: ["90 GSM Art Paper", "1/8 size", "500 pcs"] },
+                    { name: "1/8 Size – 1000 pcs", price: "₹2,249", per: "/lot", features: ["90 GSM Art Paper", "1/8 size", "1000 pcs"] },
+                    { name: "A4 Size – 100 pcs", price: "₹949", per: "/lot", features: ["90 GSM Art Paper", "A4 size", "100 pcs"] },
+                    { name: "A4 Size – 500 pcs", price: "₹2,149", per: "/lot", features: ["90 GSM Art Paper", "A4 size", "500 pcs"] },
+                    { name: "A4 Size – 1000 pcs", price: "₹2,549", per: "/lot", features: ["90 GSM Art Paper", "A4 size", "1000 pcs"] }
+                ]
+            },
+            "Sticker": {
+                description: "12\" x 18\" sheet, stitching extra",
+                pricing: [
+                    { name: "Sticker", price: "₹50", per: "/+ stitching", features: ["12\" x 18\" sheet", "Stitching extra ₹50"] }
+                ]
+            }
+        };
+
+        // ✅ MODAL & QUOTE HANDLERS (Robust, global)
+        const serviceModal = document.getElementById('serviceModal');
+        const quoteModal = document.getElementById('quoteModal');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        const quoteModalClose = document.getElementById('quoteModalClose');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        // Open service modal
+        function openServiceModal(serviceName) {
+            const service = servicesData[serviceName];
+            if (!service) {
+                console.error(`Service not found: ${serviceName}`);
+                return;
+            }
+            document.getElementById('modalServiceTitle').textContent = serviceName;
+            document.getElementById('modalServiceDesc').textContent = service.description;
+            document.getElementById('pricingGrid').innerHTML = service.pricing.map(plan => `
+                <div class="pricing-card">
+                    <h4>${plan.name}</h4>
+                    <div class="price">${plan.price}<span>${plan.per}</span></div>
+                    <ul>${plan.features.map(f => `<li>${f}</li>`).join('')}</ul>
+                </div>
+            `).join('');
+            serviceModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-    };
 
-    // DOM Elements
-    const modal = document.getElementById('serviceModal');
-    const modalTitle = document.getElementById('modalServiceTitle');
-    const modalDesc = document.getElementById('modalServiceDesc');
-    const pricingGrid = document.getElementById('pricingGrid');
-    const closeBtn = document.getElementById('modalCloseBtn');
-    const serviceCards = document.querySelectorAll('.service-card');
-
-    // Mobile Nav
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
-    const backdrop = document.querySelector('.nav-backdrop');
-
-    // Open service modal
-    function openServiceModal(serviceName) {
-        const service = servicesData[serviceName];
-        if (!service) return;
-
-        modalTitle.textContent = serviceName;
-        modalDesc.textContent = service.description;
-
-        pricingGrid.innerHTML = service.pricing.map(plan => `
-            <div class="pricing-card">
-                <h4>${plan.name}</h4>
-                <div class="price">${plan.price}<span>${plan.per}</span></div>
-                <ul>
-                    ${plan.features.map(f => `<li>${f}</li>`).join('')}
-                </ul>
-            </div>
-        `).join('');
-
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Close service modal
-    function closeServiceModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Attach click to service cards
-    serviceCards.forEach(card => {
-        const title = card.querySelector('h3').textContent;
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', () => openServiceModal(title));
-    });
-
-    // Service modal controls
-    closeBtn.addEventListener('click', closeServiceModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeServiceModal();
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeServiceModal();
+        // Open quote modal
+        function openQuoteModal() {
+            quoteModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.getElementById('name')?.focus(), 300);
         }
-    });
 
-    // Mobile nav toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        body.classList.toggle('nav-open');
-    });
+        // Close modals
+        function closeServiceModal() {
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function closeQuoteModal() {
+            quoteModal.classList.remove('active');
+            document.body.style.overflow = '';
+            resetQuoteForm();
+        }
 
-    // Close mobile nav on backdrop or link click
-    backdrop.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        body.classList.remove('nav-open');
-    });
+        // ✅ Reset quote form (global, robust)
+        function resetQuoteForm() {
+            const form = document.getElementById('serviceRequestForm');
+            const success = document.getElementById('formSuccess');
+            const fileList = document.getElementById('fileList');
+            if (form) form.reset();
+            if (success) success.style.display = 'none';
+            if (fileList) fileList.innerHTML = '';
+            if (form) form.style.display = 'block';
+        }
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
+        // Attach service card clicks
+        serviceCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.trim();
+            card.addEventListener('click', () => openServiceModal(title));
+        });
+
+        // Close buttons
+        modalCloseBtn?.addEventListener('click', closeServiceModal);
+        quoteModalClose?.addEventListener('click', closeQuoteModal);
+
+        // Close on backdrop click
+        serviceModal?.addEventListener('click', e => {
+            if (e.target === serviceModal) closeServiceModal();
+        });
+        quoteModal?.addEventListener('click', e => {
+            if (e.target === quoteModal) closeQuoteModal();
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                if (serviceModal.classList.contains('active')) closeServiceModal();
+                if (quoteModal.classList.contains('active')) closeQuoteModal();
+            }
+        });
+
+        // ✅ Open quote modal from buttons
+        document.querySelectorAll('[data-action="open-quote"]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                openQuoteModal();
+            });
+        });
+
+        // File upload preview
+        document.getElementById('reference')?.addEventListener('change', function() {
+            const list = document.getElementById('fileList');
+            list.innerHTML = this.files.length ? 
+                `<span>${Array.from(this.files).map(f => f.name).join(', ')}</span>` : '';
+        });
+
+        // Form submission
+        document.getElementById('serviceRequestForm')?.addEventListener('submit', async e => {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const orig = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            try {
+                const res = await fetch('/form', {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                } else throw new Error(data.text || 'Submission failed');
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = orig;
+            }
+        });
+
+        // Mobile nav
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const backdrop = document.querySelector('.nav-backdrop');
+        const body = document.body;
+
+        hamburger?.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.classList.toggle('nav-open');
+        });
+
+        backdrop?.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
             body.classList.remove('nav-open');
         });
-    });
 
-    // Scroll animations
-    document.addEventListener('DOMContentLoaded', function() {
-        const animateElements = document.querySelectorAll('.animate');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('appear');
-                }
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.classList.remove('nav-open');
             });
-        }, { threshold: 0.1 });
-        animateElements.forEach(el => observer.observe(el));
-    });
+        });
 
-    // Helper: scroll to contact
-    function openContact() {
-        closeServiceModal();
-        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-    }
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('appear');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+        });
     </script>
 
-    <!-- n8n Chat Script -->
-<script type="module">
-  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-  createChat({
-    webhookUrl: 'https://ramn8n.onrender.com/webhook/d2d63d52-36a4-4e67-97f7-f8bbbc506af0/chat', // 🔑 Replace with your production webhook URL
-    position: 'custom',
-    theme: {
-      // ✅ Gradient-matched to your site: indigo → purple → teal
-      colorPrimary: '#5e60ce', // var(--indigo)
-      colorSecondary: '#00c9b1', // var(--teal)
-      // Enhanced styling to match your UI
-      borderRadius: 16,
-      fontFamily: 'Poppins, sans-serif',
-      backgroundColor: 'white',
-      // Custom header gradient (like your navbar)
-      headerStyle: {
-        background: 'linear-gradient(90deg, #5e60ce, #7b2cbf, #00c9b1)',
-        color: 'white',
-        boxShadow: '0 4px 20px rgba(94, 96, 206, 0.3)'
-      },
-      // Floating button (when collapsed)
-      buttonStyle: {
-        background: 'linear-gradient(135deg, #5e60ce, #ff6b6b, #ffd166)',
-        width: '60px',
-        height: '60px',
-        borderRadius: '50%',
-        boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
-        iconColor: 'white',
-        animation: 'pulse 2s infinite'
-      }
-    },
-    enableStreaming: true,
-    initialMessages: ['👋 Hi! I’m Suyash’s AI assistant — how can I help with design or printing today?']
-  });
-
-  // ===== Quote Modal Logic =====
-// ===== Quote Modal Logic =====
-const quoteModal = document.getElementById('quoteModal');
-const quoteModalClose = document.getElementById('quoteModalClose');
-const openQuoteButtons = document.querySelectorAll('a[href="#contact"], .btn-primary[href="#contact"], .cta-btn');
-
-function openQuoteModal() {
-  quoteModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => document.getElementById('name')?.focus(), 300);
-}
-
-function closeQuoteModal() {
-  quoteModal.classList.remove('active');
-  document.body.style.overflow = '';
-  resetQuoteForm();
-}
-
-openQuoteButtons.forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    openQuoteModal();
-  });
-});
-
-quoteModalClose?.addEventListener('click', closeQuoteModal);
-quoteModal?.addEventListener('click', (e) => {
-  if (e.target === quoteModal) closeQuoteModal();
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && quoteModal.classList.contains('active')) {
-    closeQuoteModal();
-  }
-});
-
-
-
-// File upload preview
-document.getElementById('reference')?.addEventListener('change', function(e) {
-  const fileList = document.getElementById('fileList');
-  fileList.innerHTML = '';
-  if (this.files.length > 0) {
-    const names = Array.from(this.files).map(f => f.name).join(', ');
-    fileList.innerHTML = `<span>${names}</span>`;
-  }
-});
-
-// ✅ FORM SUBMISSION TO YOUR PYTHON BACKEND
-document.getElementById('serviceRequestForm')?.addEventListener('submit', async function(e) {
-  e.preventDefault();
-
-  const form = this;
-  const formData = new FormData(form);
-
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-  try {
-    const response = await fetch('/form', {
-      method: 'POST',
-      body: formData,
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      form.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    } else {
-      throw new Error(`Server error: ${result.text || response.statusText}`);
-    }
-
-  } catch (error) {
-    alert(`Oops! Something went wrong: ${error.message}`);
-    console.error('Submission failed:', error);
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
-  }
-});
-
-function resetQuoteForm() {
-  const modal = document.getElementById('quoteModal');
-  if (!modal) return;
-
-  if (!modal.classList.contains('active')) {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  const form = document.getElementById('serviceRequestForm');
-  const success = document.getElementById('formSuccess');
-  const fileList = document.getElementById('fileList');
-
-  if (form) form.reset();
-  if (success) success.style.display = 'none';
-  if (fileList) fileList.innerHTML = '';
-
-  if (form) form.style.display = 'block';
-
-  document.querySelectorAll('#serviceRequestForm input, #serviceRequestForm textarea, #serviceRequestForm select')
-    .forEach(el => el.style.borderColor = '#e2e8f0');
-
-  setTimeout(() => document.getElementById('name')?.focus(), 100);
-}</script>
-
-
-
+    <!-- n8n Chat Widget -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+        createChat({
+            webhookUrl: 'https://ramn8n.onrender.com/webhook/3de283b4-c0e1-4bdb-b0a8-61be00a57551/chat',
+            position: 'custom',
+            theme: {
+                colorPrimary: '#5e60ce',
+                colorSecondary: '#00c9b1',
+                borderRadius: 16,
+                fontFamily: 'Poppins, sans-serif',
+                headerStyle: {
+                    background: 'linear-gradient(90deg, #5e60ce, #7b2cbf, #00c9b1)',
+                    color: 'white',
+                    boxShadow: '0 4px 20px rgba(94, 96, 206, 0.3)'
+                },
+                buttonStyle: {
+                    background: 'linear-gradient(135deg, #5e60ce, #ff6b6b, #ffd166)',
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
+                    iconColor: 'white'
+                }
+            },
+            enableStreaming: true,
+            initialMessages: ['👋 Hi! I’m Suyash’s AI assistant — how can I help?']
+        });
+    </script>
 </body>
 </html>
