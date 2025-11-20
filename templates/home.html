@@ -903,15 +903,22 @@
             100% { box-shadow: 0 0 0 0 rgba(94, 96, 206, 0); }
         }
         #n8n-chat-wrap {
-            position: fixed;
-            right: 16px;
-            bottom: 16px;
-            width: 360px;
-            height: 520px;
-            max-width: 90vw;
-            max-height: 75vh;
-            z-index: 1200;
-        }
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 360px;
+    height: 520px;
+    max-width: 90vw;
+    max-height: 75vh;
+    z-index: 1200;
+    /* 👇 Critical fix: don't block clicks unless chat is open */
+    pointer-events: none;
+}
+
+/* Only allow interaction with the actual chat widget */
+#n8n-chat-wrap > * {
+    pointer-events: auto;
+}
         n8n-chat, n8n-chat-widget {
             width: 100% !important;
             height: 100% !important;

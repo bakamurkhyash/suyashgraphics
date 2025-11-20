@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Works | SuyashGraphics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Explore our portfolio — visiting cards, billbooks, invitations & more, crafted & printed by SuyashGraphics in Kolhapur.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -18,6 +21,8 @@
             --gold: #ffd166;
             --indigo: #5e60ce;
             --purple: #7b2cbf;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
         }
 
         body {
@@ -44,14 +49,115 @@
             z-index: 0;
         }
 
-        /* Animated Header */
+        /* ===== HEADER / NAVBAR ===== */
+        header {
+            background: linear-gradient(90deg, var(--indigo), #7b2cbf, var(--teal));
+            background-size: 300% 300%;
+            animation: gradientBG 8s ease infinite;
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--gold), var(--coral));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li { margin-left: 1.8rem; }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 0.4rem 0;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1500;
+        }
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .hamburger.active span:first-child {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:last-child {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Main content padding top for fixed header */
+        main {
+            padding-top: 80px;
+        }
+
+        /* ===== Animated Header ===== */
         .header {
             text-align: center;
             padding: 4rem 1.5rem 3rem;
             position: relative;
             z-index: 10;
         }
-
         .header h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 4.5rem;
@@ -68,7 +174,6 @@
             position: relative;
             display: inline-block;
         }
-
         .header h1::after {
             content: '';
             position: absolute;
@@ -81,27 +186,24 @@
             border-radius: 2px;
             animation: pulse 2s infinite;
         }
-
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
             50% { opacity: 0.6; transform: translateX(-50%) scaleX(1.2); }
         }
 
-        /* Masonry Grid */
+        /* ===== Masonry Gallery ===== */
         .gallery {
             column-count: 4;
             column-gap: 1.4rem;
-            padding: 0 1.5rem 3rem;
+            padding: 0 1.5rem 4rem;
             position: relative;
             z-index: 5;
         }
-
         .gallery-item {
             break-inside: avoid;
             margin-bottom: 1.4rem;
@@ -109,28 +211,13 @@
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease forwards;
         }
-
-        /* Staggered animation */
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
-        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
-        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
-        .gallery-item:nth-child(9) { animation-delay: 0.9s; }
-        .gallery-item:nth-child(10) { animation-delay: 1.0s; }
-        .gallery-item:nth-child(11) { animation-delay: 1.1s; }
-        .gallery-item:nth-child(12) { animation-delay: 1.2s; }
-
+        .gallery-item:nth-child(n) { animation-delay: calc(0.1s * var(--i, 1)); }
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         .gallery-img-wrapper {
             position: relative;
             border-radius: 20px;
@@ -138,7 +225,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-
         .gallery-img-wrapper::before {
             content: '';
             position: absolute;
@@ -158,46 +244,188 @@
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-
         .gallery-item:hover .gallery-img-wrapper::before {
             opacity: 1;
         }
-
         .gallery-img {
             width: 100%;
             display: block;
             transition: transform 0.7s ease;
         }
-
         .gallery-item:hover .gallery-img {
             transform: scale(1.06) rotate(0.8deg);
         }
-
-        /* Tilt Effect via CSS (no JS) */
         .gallery-img-wrapper {
             transform-style: preserve-3d;
             perspective: 1000px;
         }
-
         .gallery-img {
             transform: translateZ(0);
         }
-
         .gallery-item:hover .gallery-img-wrapper {
             transform: rotateX(3deg) rotateY(-3deg) scale(1.02);
         }
 
-        /* Responsive */
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: #aaa;
+            padding: 5rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--coral), var(--gold));
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 0.6rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        .footer-column p {
+            line-height: 1.7;
+            color: #bbb;
+        }
+        .footer-column p i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.9rem;
+        }
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+        }
+        .footer-column ul li a:hover {
+            color: var(--gold);
+            transform: translateX(4px);
+        }
+        .footer-column ul li a i {
+            font-size: 0.85rem;
+            color: var(--teal);
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover i {
+            color: var(--gold);
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--teal), var(--coral));
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.95rem;
+            color: #777;
+            font-weight: 500;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .copyright span { color: var(--gold); }
+        .copyright i { color: var(--coral); margin: 0 4px; }
+
+        /* ===== Responsive ===== */
         @media (max-width: 1200px) {
             .gallery { column-count: 3; }
             .header h1 { font-size: 3.8rem; }
         }
-
         @media (max-width: 900px) {
             .gallery { column-count: 2; }
             .header h1 { font-size: 3.2rem; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 300px;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--indigo), #7b2cbf, var(--teal));
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 80px;
+                gap: 1.5rem;
+                list-style: none;
+                margin: 0;
+                z-index: 1100;
+                transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links li { margin: 0; }
+            .nav-links a {
+                display: block;
+                color: white;
+                font-size: 1.3rem;
+                padding: 0.8rem 1.5rem;
+                width: 100%;
+                text-align: center;
+                border-radius: 12px;
+                transition: background 0.3s;
+            }
+            .nav-links a:hover { background: rgba(255,255,255,0.15); }
+            .nav-links a::after { display: none; }
         }
-
         @media (max-width: 600px) {
             .gallery { column-count: 1; column-gap: 0; }
             .header h1 { font-size: 2.6rem; }
@@ -205,252 +433,102 @@
             .gallery-item { margin-bottom: 1rem; }
         }
 
-        /* Optional: Add subtle float animation on idle */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+        /* ===== Chat Widget Fix ===== */
+        #n8n-chat-wrap {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            width: 360px;
+            height: 520px;
+            max-width: 90vw;
+            max-height: 75vh;
+            z-index: 1200;
+            pointer-events: none; /* ✅ Critical fix */
+        }
+        #n8n-chat-wrap > * {
+            pointer-events: auto; /* ✅ Allow clicks on children */
+        }
+        @media (max-width: 480px) {
+            #n8n-chat-wrap {
+                width: 95vw;
+                height: 60vh;
+                right: 2.5vw;
+                bottom: 2.5vh;
+            }
         }
 
-        /* Uncomment below to enable gentle float on images (optional) */
-        /*
-        .gallery-item {
-            animation: float 6s ease-in-out infinite;
+        /* Nav backdrop */
+        .nav-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1050;
         }
-        .gallery-item:nth-child(2n) { animation-delay: -1s; }
-        .gallery-item:nth-child(3n) { animation-delay: -2s; }
-        */
-
-        /* ===== FOOTER STYLES ===== */
-footer {
-    background: var(--dark);
-    color: #aaa;
-    padding: 5rem 0 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--teal), var(--coral), var(--gold));
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-.footer-column h3 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    position: relative;
-    padding-bottom: 0.6rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
-
-.footer-column h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: var(--gold);
-    border-radius: 2px;
-}
-
-.footer-column p {
-    line-height: 1.7;
-    color: #bbb;
-}
-
-.footer-column p i {
-    color: var(--gold);
-    margin-right: 8px;
-}
-
-.footer-column ul {
-    list-style: none;
-}
-
-.footer-column ul li {
-    margin-bottom: 0.9rem;
-}
-
-.footer-column ul li a {
-    color: #bbb;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-weight: 500;
-}
-
-.footer-column ul li a:hover {
-    color: var(--gold);
-    transform: translateX(4px);
-}
-
-.footer-column ul li a i {
-    font-size: 0.85rem;
-    color: var(--teal);
-    transition: color 0.3s;
-}
-
-.footer-column ul li a:hover i {
-    color: var(--gold);
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.2rem;
-}
-
-.social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    background: linear-gradient(135deg, var(--teal), var(--coral));
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    font-size: 0.95rem;
-    color: #777;
-    font-weight: 500;
-}
-
-.copyright span {
-    color: var(--gold);
-}
-
-.copyright i {
-    color: var(--coral);
-    margin: 0 4px;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .footer-content {
-        gap: 2rem;
-    }
-
-    .footer-column h3 {
-        font-size: 1.3rem;
-    }
-
-    .social-icons a {
-        width: 40px;
-        height: 40px;
-    }
-}
+        body.nav-open .nav-backdrop {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">Suyash<span style="color:var(--gold)">Graphics</span></div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#why-us">Why Us</a></li>
+                <li><a href="/works">Our Works</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
 
-    <!-- Animated Header -->
-    <div class="header">
-        <h1>Our Works</h1>
-    </div>
+    <!-- Backdrop for mobile nav -->
+    <div class="nav-backdrop"></div>
 
-    <!-- Masonry Image Gallery -->
-    <div class="gallery" id="gallery">
-        <!-- Each item auto-fits in masonry layout -->
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/XYhzcc6k/118101.jpg" alt="Project" class="gallery-img">
-            </div>
+    <main>
+        <!-- Animated Header -->
+        <div class="header">
+            <h1>Our Works</h1>
         </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/ZYFXtd6V/169233.jpg" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/bwFKVfkx/217.jpg" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/Xq8PwRnZ/241380.png" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/7ZcWMMrM/264.jpg" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/Mp4Fbb82/343.jpg" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/7LGjptNP/84.jpg" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/9QHSfDkQ/282.jpg" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/85YXgcWC/357.png" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/28ZMmQ01/372.jpg" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/tTcvGJPt/49453.png" alt="Project" class="gallery-img">
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="gallery-img-wrapper">
-                <img src="https://i.postimg.cc/Y0JPY0C7/89.png" alt="Project" class="gallery-img">
-            </div>
-        </div>
-    </div>
 
+        <!-- Masonry Image Gallery -->
+        <div class="gallery" id="gallery">
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/XYhzcc6k/118101.jpg" alt="Visiting Card Design" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/ZYFXtd6V/169233.jpg" alt="Billbook Print" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/bwFKVfkx/217.jpg" alt="Wedding Invitation" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/Xq8PwRnZ/241380.png" alt="Logo Design" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/7ZcWMMrM/264.jpg" alt="Letterhead Print" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/Mp4Fbb82/343.jpg" alt="Pamphlet Design" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/7LGjptNP/84.jpg" alt="Sticker Print" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/9QHSfDkQ/282.jpg" alt="Poster Design" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/85YXgcWC/357.png" alt="Premium Visiting Card" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/28ZMmQ01/372.jpg" alt="Event Brochure" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/tTcvGJPt/49453.png" alt="Business Branding Kit" class="gallery-img"></div></div>
+            <div class="gallery-item"><div class="gallery-img-wrapper"><img src="https://i.postimg.cc/Y0JPY0C7/89.png" alt="Foil-Stamped Invitation" class="gallery-img"></div></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <footer id="contact">
-    <div class="container">
         <div class="footer-content">
-            <!-- Column 1: Brand & Info -->
             <div class="footer-column">
                 <h3>Suyash<span style="color: var(--gold)">Graphics</span></h3>
                 <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
                 <p><i class="far fa-clock"></i> Mon–Sat: 9 AM – 8 PM</p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+918888574585">+91 88885 74585</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+918888574585" style="color:#bbb;text-decoration:none">+91 88885 74585</a></p>
                 <div class="social-icons">
                     <a href="https://facebook.com/suyashgraphics" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://instagram.com/suyashgraphics" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -459,41 +537,27 @@ footer::before {
                 </div>
             </div>
 
-            <!-- Column 2: Services -->
             <div class="footer-column">
                 <h3>Our Services</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Logo Design</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Visiting Cards</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wedding Invitations</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Billbooks & Stationery</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Posters & Banners</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Premium Printing</a></li>
+                    <li><a href="/#services"><i class="fas fa-chevron-right"></i> Visiting Cards</a></li>
+                    <li><a href="/#services"><i class="fas fa-chevron-right"></i> Bill Book</a></li>
+                    <li><a href="/#services"><i class="fas fa-chevron-right"></i> Letter Head</a></li>
+                    <li><a href="/#services"><i class="fas fa-chevron-right"></i> Pamphlets</a></li>
+                    <li><a href="/#services"><i class="fas fa-chevron-right"></i> Stickers</a></li>
+                    <li><a href="/#services"><i class="fas fa-chevron-right"></i> Custom Design</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Quick Contact -->
             <div class="footer-column">
-                <h3>Get in Touch</h3>
+                <h3>Quick Contact</h3>
                 <ul>
+                    <li><a href="mailto:suyashgraphics@gmail.com"><i class="fas fa-envelope"></i> suyashgraphics@gmail.com</a></li>
+                    <li><a href="tel:+918888574585"><i class="fas fa-phone-alt"></i> +91 88885 74585</a></li>
+                    <li><a href="https://maps.app.goo.gl/NEprQmzzEQT3JFRH9" target="_blank"><i class="fas fa-map-pin"></i> Visit Studio</a></li>
                     <li>
-                        <a href="mailto:suyashgraphics@gmail.com">
-                            <i class="fas fa-envelope"></i> suyashgraphics@gmail.com
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tel:+918888574585">
-                            <i class="fas fa-phone-alt"></i> +91 88885 74585
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.google.co.in/maps/place/Kolhapur" target="_blank">
-                            <i class="fas fa-map-pin"></i> Visit Our Studio
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#home" class="quick-quote">
-                            <i class="fas fa-paper-plane"></i> Request a Free Quote
+                        <a href="#" class="quick-quote" data-action="open-quote">
+                            <i class="fas fa-paper-plane"></i> Get a Quote
                         </a>
                     </li>
                 </ul>
@@ -503,9 +567,68 @@ footer::before {
         <div class="copyright">
             &copy; 2025 <span>SuyashGraphics</span>. Crafted with <i class="fas fa-heart"></i> for your success.
         </div>
-    </div>
-</footer>
+    </footer>
 
+    <!-- Chat Widget Container -->
+    <div id="n8n-chat-wrap"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile nav toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const backdrop = document.querySelector('.nav-backdrop');
+        const body = document.body;
+
+        hamburger?.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.classList.toggle('nav-open');
+        });
+
+        backdrop?.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            body.classList.remove('nav-open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.classList.remove('nav-open');
+            });
+        });
+    </script>
+
+    <!-- n8n Chat Widget -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+        createChat({
+            webhookUrl: 'https://ramn8n.onrender.com/webhook/3de283b4-c0e1-4bdb-b0a8-61be00a57551/chat',
+            position: 'custom',
+            theme: {
+                colorPrimary: '#5e60ce',
+                colorSecondary: '#00c9b1',
+                borderRadius: 16,
+                fontFamily: 'Poppins, sans-serif',
+                headerStyle: {
+                    background: 'linear-gradient(90deg, #5e60ce, #7b2cbf, #00c9b1)',
+                    color: 'white',
+                    boxShadow: '0 4px 20px rgba(94, 96, 206, 0.3)'
+                },
+                buttonStyle: {
+                    background: 'linear-gradient(135deg, #5e60ce, #ff6b6b, #ffd166)',
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
+                    iconColor: 'white'
+                }
+            },
+            enableStreaming: true,
+            initialMessages: ['🎨 Welcome to SuyashGraphics! Need design or print help? Just ask!']
+        });
+    </script>
 </body>
 </html>
-
