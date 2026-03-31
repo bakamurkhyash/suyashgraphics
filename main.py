@@ -35,4 +35,4 @@ def works():
     return render_template("works.html")
 
 if "__main__" == __name__:
-    app.run()
+    app.run(debug=True) 

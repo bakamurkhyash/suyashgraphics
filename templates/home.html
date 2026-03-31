@@ -492,6 +492,8 @@
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
+                position: relative;
+                z-index: 1500;
             }
             .nav-links {
                 position: fixed;
@@ -728,10 +730,16 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            z-index: 900;
         }
         body.nav-open .nav-backdrop {
             opacity: 1;
             visibility: visible;
+        }
+        body.nav-open #n8n-chat-wrap {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
         }
         /* Quote Modal Specific Styles */
         .quote-modal {
